@@ -1,0 +1,380 @@
+<!-- フッターページスライダー -->
+<script type="text/template" id="footer-tooltip-template">
+    <div id="tip" class="tooltip-box">
+        <div id="tooltip-left">
+            <div id="tooltip-label-l" class="tooltip-label"></div>
+            <img id="tooltip-image-l" class="tooltip-image-l">
+        </div>
+        <div id="tooltip-right">
+            <div id="tooltip-label-r" class="tooltip-label"></div>
+            <img id="tooltip-image-r" class="tooltip-image-r">
+        </div>
+        <div id="tooltip-unit">
+            <div id="tooltip-label-unit" class="tooltip-label"></div>
+            <img id="tooltip-image-unit" class="tooltip-image-unit">
+        </div>
+    </div>
+</script>
+
+<!-- ポップアップ -->
+<script type="text/template" id="popup-template">
+<div id="popup" class="popup">
+    <%= text %>
+</div>
+</script>
+
+<script type="text/template" id="croparea-template">
+  <div id="crop-area">
+    <div id="crop-target"></div>
+  </div>
+</script>
+
+<script type="text/template" id="fusenarea-template">
+  <div id="fusen-area" class="fusen-mask">
+  </div>
+</script>
+
+<script type="text/template" id="comment-selectarea-template">
+  <div id="comment-select-area">
+    <div id="comment-select-target"></div>
+  </div>
+</script>
+
+
+<!--商品情報：一覧 -->
+<script type="text/template" id="panel-products-list-template">
+  <div id="panel-products-<%= mode %>-list" class="panel-products-list allowselect <%= deviceCode %>" data-role="panel" data-type="input">
+    <div class="panel-products-list-title <%= deviceCode %>">
+        <%= _products %><div class="box-close-btn ev-btn-close-products-<%= mode %>-list <%= deviceCode %>"><span class="btn-close btn-panel-close-m close-products-list <%= deviceCode %>" id="btn-close-products-<%= mode %>-list"></span></div>
+    </div>
+    <div class="products-list-border"></div>
+    <div class="panel-products-list-header">
+        <% if(openPage && mode === "page"){ %>
+        <div class="products-pageselect-area">
+            <div class="products-pageselect-box ev-products-pageselect-box <%= leftpageDisabled %>" data-type="left">
+                <div class="checkbox-products-selectpage <%= leftpageSelected %>" data-type="left"></div>
+                <label><%= _leftpageName %></lable>
+            </div>
+            <div class="products-pageselect-box ev-products-pageselect-box <%= rightpageDisabled %>" data-type="right">
+                <div class="checkbox-products-selectpage <%= rightpageSelected %>" data-type="right"></div>
+                <label><%= _rightpageName %></lable>
+            </div>
+        </div>
+        <% } %>
+        <% if(mode === "search"){ %>
+        <div class="products-search-area">
+            <div class="btn-products-search-clear ev-btn-products-search-clear"></div>
+            <form name="" id="menu-products-search-form" class="menu-products-search-form" method="post" action="#">
+                <div id="menu-products-search-inputbox" class="menu-products-search-inputbox">
+                    <input name="" id="menu-products-search-input" class="menu-products-search-input" value="" type="text" placeholder="<%= _searchtxtInputPlaceholder %>">
+                </div>
+                <div class="icon-search-box ev-icon-products-search-box">
+                    <span id="btn-txtsearchicon" class="btn-txtsearchicon btn-search ev-btn-products-search <%= deviceCode %>">
+                </div>
+            </form>
+        </div>
+        <% } %>
+    </div>
+    <div class="panel-products-list-sub-header">
+        <span class="products-search-count-box"><%= _totalCounts %><span id="products-<%= mode %>-count" class="products-search-count"></span><%= _totalCountsUnit %></span>
+        <div id="products-<%= mode %>-pagenation-area" class="products-pagenation-area denayselect">
+
+        </div>
+    </div>
+    <div class="panel-products-list-tab-area  denayselect">
+        <% for(var i = 0; i < headerTabs.length; ++i) { %>
+            <div class="panel-products-list-tab ev-panel-products-list-tab" data-id="<%= headerTabs[i].id %>">
+                <div class="tab-name" data-id="<%= headerTabs[i].id %>"><%= headerTabs[i].name %></div>
+                <div class="tab-count" data-id="<%= headerTabs[i].id %>"></div>
+            </div>
+        <% } %>
+    </div>
+    <div id="products-<%= mode %>-list-table" class="products-list-table">
+
+
+    </div>
+  </div>
+</script>
+<!-- /商品情報：一覧 -->
+
+<!--商品情報：プルダウン -->
+<script type="text/template" id="panel-products-list-selectdb-template">
+    <div class="select-database-box">
+        <label>
+        <select class="ev-select-database">
+        <% for(var i = 0; i < databases.length; ++i) { %>
+            <% if(results[i].counts === 0){ %>
+            <option disabled="disabled" value="<%= databases[i].id %>"><%= databases[i].name %> (<%= results[i].counts %>) </option>
+            <% }else{ %>
+            <%
+                var selected = "";
+                if(databases[i].id === db){
+                    selected = 'selected="selected"';
+                }
+            %>
+            <option value="<%= databases[i].id %>" <%= selected %>><%= databases[i].name %> (<%= results[i].counts %>) </option>
+            <% } %>
+        <% } %>
+        </select>
+        </label>
+    </div>
+</script>
+
+<!--商品情報：ページネーション -->
+<script type="text/template" id="panel-products-list-pagenations-template">
+    <div class="pagenation-left ev-pagenation-move <%= enableLeft %> <%= deviceCode %>" data-type="left"></div>
+    <% for(var i = 0; i < pageNations.length; ++i) { %>
+    <div class="pagenation-box ev-pagenation-box <%= pageNations[i].selected %>"><%= pageNations[i].value %></div>
+    <% } %>
+    <div class="pagenation-right ev-pagenation-move <%= enableRight %> <%= deviceCode %>" data-type="right"></div>
+</script>
+
+<!--商品情報テーブルパーツ -->
+<script type="text/template" id="panel-products-list-table-template">
+    <% var detailsId = 0; %>
+        <div class="products-list-table-top-border"></div>
+        <div class="products-list-header">
+            <% for(var i = 0; i < headerCols.length; ++i) { %>
+                <div class="products-list-header-col" data-id="<%= headerCols[i].id %>"  data-key="<%= headerCols[i].col_no %>" data-type="<%= headerCols[i].type %>"  data-typeoption="<%= headerCols[i].typeOption %>">
+
+                    <% if (headerCols[i].type === 7 && headerCols[i].typeOption === 2 ) {%>
+                    <span class="products-download-header-check-icon ev-products-download-header-check-icon" data-id="<%= headerCols[i].id %>"  data-key="<%= headerCols[i].col_no %>"></span>
+                    <% } %>
+                    <span data-id="<%= headerCols[i].id %>" data-type="<%= headerCols[i].type %>"><%= headerCols[i].name %></span>
+                    <% if (headerCols[i].type === 7 && headerCols[i].typeOption === 2 ) {%>
+                    <span class="products-download-header-icon ev-products-download-header-icon" data-id="<%= headerCols[i].id %>"  data-key="<%= headerCols[i].id %>"></span>
+                    <% } %>
+                    <% if (headerCols[i].type === 1 || headerCols[i].type === 2 || headerCols[i].type === 3 ) {%>
+                    <span class="products-sort-icon ev-products-sort-object" data-id="<%= headerCols[i].id %>"  data-key="<%= headerCols[i].col_no %>" data-type="<%= headerCols[i].type %>"  data-typeoption="<%= headerCols[i].typeOption %>"></span>
+                    <% } %>
+                    <% if (headerCols[i].type === 0 ) {%>
+                        <% detailsId = headerCols[i].id;%>
+                    <% } %>
+                </div>
+            <% } %>
+            <% if( mode === "search" && on_page === 1 ){ %>
+                <div class="products-list-header-col" data-name="includepages">
+                    <%= _includePages %>
+                </div>
+            <% } %>
+            <% if( btnDetail === 1 ){ %>
+                <div class="products-list-header-col" data-name="detail">
+
+                </div>
+            <% } %>
+        </div>
+        <div class="products-list-data-area">
+        <% for(var i = 0; i < Object.keys(rows).length; ++i) { %>
+            <div class="products-list-row">
+                <% var index = 0; %>
+                <% var col_type = ""; %>
+                <% for( var key in rows[i].data) { %>
+
+                    <% if(headerCols[index].type === 2 && headerCols[index].typeOption === 1){ %>
+                        <% col_type = "html"; %>
+                    <% }else if(headerCols[index].type === 2 && headerCols[index].typeOption === 0){ %>
+                        <% col_type = "text"; %>
+                    <% } %>
+
+                    <% if(colNum > index){ %>
+                    <div class="products-list-row-col" data-id="<%= key %>" data-key="<%= key %>" data-coltype="<%= col_type %>">
+                            <% if (headerCols[index].type === 7 && headerCols[index].typeOption === 2 && rows[i].data[key] !== "") {%>
+                            <span class="products-download-check-icon ev-products-download-check-icon" data-db="<%= db  %>" data-key="<%= headerCols[index].id %>" data-name="<%= rows[i].data[key] %>" data-id="<%= rows[i].id %>"></span>
+                            <% } %>
+
+                            <% if (headerCols[index].type === 5 && rows[i].data[key] !== ""){ %>
+                            <span class="btn-products-link ev-btn-products-link" data-url="<%= rows[i].data[key] %>" data-type="<%= headerCols[index].typeOption %>"><%= headerCols[index].label %></span>
+                            <% }else if (headerCols[index].type === 6 && rows[i].data[key] !== "") {%>
+
+                                <%
+                                    var valKey = headerCols[index].id;
+                                    var fileinfo = rows[i].data[key].split(".");
+                                    var extension = "";
+                                    if(fileinfo.length > 1){
+                                        extension = fileinfo[1];
+                                    }
+                                    var img_url = "./database/" + db +"/"+ valKey +"/"+ rows[i].id +"."+extension;
+                                %>
+                                <img src="<%= img_url %>" data-url="<%= img_url %>" class="products-list-image ev-products-list-image">
+                            <% }else if (headerCols[index].type === 7 && rows[i].data[key] !== ""){ %>
+                            <span class="btn-products-details ev-btn-products-download" data-db="<%= db  %>" data-key="<%= headerCols[index].id %>" data-name="<%= rows[i].data[key] %>" data-id="<%= rows[i].id %>"><%= headerCols[index].label %></span>
+                            <% }else{ %>
+                                <% if(headerCols[index].type === 2){ %>
+                                    <% if(headerCols[index].typeOption === 0){ %>
+                                        <%= rows[i].data[key].replace(/[\n]/g, '<br>') %>
+                                    <% }else{ %>
+                                        <%= rows[i].data[key] %>
+                                    <% } %>
+                                <% }else{ %>
+                                    <%= rows[i].data[key] %>
+                                <% } %>
+                            <% } %>
+                    </div>
+                    <% index++; %>
+                    <% } %>
+                <% } %>
+                <% if( mode === "search" && on_page === 1 ){ %>
+                    <div class="products-list-row-col" data-id="includepage" data-name="includepages">
+                        <% if(Object.keys(rows[i].pages).length > 1){ %>
+                            <span class="btn-products-includepage ev-btn-products-includepage" data-id="<%= rows[i].id %>" data-page="<%= rows[i].pages[0] %>"><%= book.getDisplayPageName(rows[i].pages[0]) %></span>
+                            <% for(var j = 1; j < Object.keys(rows[i].pages).length; ++j) { %>
+                            <span class="btn-products-includepage ev-btn-products-includepage btn-products-includepag-hide" data-id="<%= rows[i].id %>" data-page="<%= rows[i].pages[j] %>"><%= book.getDisplayPageName(rows[i].pages[j]) %></span>
+                            <% } %>
+                            <span class="btn-products-includepage-more ev-btn-products-includepage-more" data-id="<%= rows[i].id %>">
+                                <span class="btn-products-includepage-more-icon"></span>
+                            </span>
+                        <% }else{ %>
+                            <% if( rows[i].pages && rows[i].pages.length > 0 ){ %>
+                            <span class="btn-products-includepage ev-btn-products-includepage" data-id="<%= rows[i].id %>" data-page="<%= rows[i].pages[0] %>">
+                                <%= book.getDisplayPageName(rows[i].pages[0]) %>
+                            </span>
+                            <% } %>
+                        <% } %>
+                    </div>
+                <% } %>
+                <% if( btnDetail === 1 ){ %>
+                    <div class="products-list-row-col" data-id="detail" data-name="detail">
+                        <span class="btn-products-details ev-btn-products-details" data-id="<%= rows[i].id %>"><%= message.datails %></span>
+                    </div>
+                <% } %>
+            </div>
+            <div class="products-list-border"></div>
+        <% } %>
+        </div>
+</script>
+<!-- /商品情報テーブルパーツ -->
+
+<!--全文検索情報テーブルパーツ -->
+<script type="text/template" id="panel-products-txtsearch-table-template">
+    <div class="products-list-table-top-border"></div>
+    <div class="products-txtsearch-header">
+        <div class="products-txtsearch-header-col" data-type="page">
+            <span><%= _page %></span>
+            <span class="products-sort-icon ev-products-txtsearch-sort-icon" data-type="page"></span>
+        </div>
+        <div class="products-txtsearch-header-col" data-type="hit">
+            <span><%= _hitNum %></span>
+        </div>
+    </div>
+    <div class="products-txtsearch-data-area">
+    <% var page = 0; %>
+    <% var keyword = ""; %>
+    <% for(var i = 0; i < hits.length; ++i) { %>
+        <% if(page != hits[i].page ){ %>
+        <div class="products-txtsearch-label-row">
+            <div class="products-txtsearch-label-col" data-type="page"><%= book.getDisplayPageName(hits[i].page) %></div>
+            <div class="products-txtsearch-label-col" data-type="hit"><%= hits[i].hit %></div>
+        </div>
+        <% } %>
+        <% keyword = ""; %>
+        <% var index = 0; %>
+        <% for(var j = 0; j < rows.length; j++) { %>
+            <% if(rows[j].page == hits[i].page ){ %>
+
+
+            <% if(keywords.length > 1 && keyword != rows[j].keyword ){ %>
+            <div class="products-txtsearch-keywordline-row <%= deviceCode %>">
+                <%- rows[j].keyword %>
+            </div>
+            <div class="products-list-border"></div>
+            <% } %>
+
+            <div class="products-txtsearch-row">
+                <div class="products-txtsearch-row-col ev-products-txtsearch-row-col" data-page="<%= rows[j].page %>" data-index="<%= index %>">
+
+                <%- rows[j].before %><span class="products-searchKeyword"><%- rows[j].keyword %></span><%- rows[j].after %>
+
+                </div>
+            </div>
+            <div class="products-list-border"></div>
+            <% index++; %>
+            <% keyword = rows[j].keyword; %>
+            <% } %>
+        <% } %>
+        <% page = hits[i].page; %>
+    <% } %>
+    </div>
+</script>
+<!-- /全文検索情報テーブルパーツ -->
+
+<!--商品情報：詳細 -->
+<script type="text/template" id="panel-products-details-template">
+  <div id="panel-products-details<%= id %>" class="panel-products-details allowselect <%= deviceCode %>" data-id="<%= id %>" tabindex="<%= tabindex %>" data-role="panel" data-type="input">
+        <div class="panel-products-details-title  <%= deviceCode %>">
+            <%= _productsDetails %><div class="box-close-btn close-products-details ev-btn-close-products-details <%= deviceCode %>" data-id="<%= id %>"><span class="btn-close btn-panel-close-m  <%= deviceCode %>" id="btn-close-products-details"></span></div>
+        </div>
+        <div class="products-list-border"></div>
+        <div class="products-details-data-area">
+        <% var index = 0; %>
+        <% var col_type = ""; %>
+        <% for( var key in rows) { %>
+            <div class="products-details-row">
+                <div class="products-details-row-col-name">
+                    <%= rows[key].name %>
+                </div>
+
+                <% if(rows[key].type === 2 && rows[key].typeOption === 1){ %>
+                    <% col_type = "html"; %>
+                <% }else if(rows[key].type === 2 && rows[key].typeOption === 0){ %>
+                    <% col_type = "text"; %>
+                <% } %>
+                <div class="products-details-row-col-data" data-coltype="<%= col_type %>">
+                    <% if(rows[key].type == 1 ){ %>
+                        <%= rows[key].value %>
+                    <% }else if(rows[key].type == 2 ){ %>
+                        <% if (rows[key].typeOption === 0 ){ %>
+                        <%= rows[key].value.replace(/[\n]/g, '<br>') %>
+                        <% }else if (rows[key].typeOption === 1 ){ %>
+                        <%= rows[key].value %>
+                        <% } %>
+
+                    <% }else if(rows[key].type == 3 ){ %>
+                        <%= rows[key].value %>
+                    <% }else if(rows[key].type == 4 ){ %>
+                    <% }else if(rows[key].type == 5 && rows[key].value !== ""){ %>
+                        <span class="btn-products-link ev-btn-products-details-link" data-url="<%= rows[key].value %>" data-type="<%= rows[key].typeOption %>"><%= rows[key].label %></span>
+                    <% }else if(rows[key].type == 6 && rows[key].value !== "" ){ %>
+                        <%
+                            var fileinfo = rows[key].value.split(".");
+                            var extension = "";
+                            if(fileinfo.length > 1){
+                                extension = fileinfo[1];
+                            }
+                            var img_url = "./database/" + db + "/" + rows[key].id +"/"+ id +"."+ extension;
+                        %>
+                        <img src="<%= img_url %>" class="products-details-image ev-products-details-image" data-url="<%= img_url %>">
+                    <% }else if(rows[key].type === 7 && rows[key].value !== "" ){ %>
+
+                        <% if (rows[key].typeOption > 0 ) {%>
+                         <span class="btn-products-details ev-btn-products-download" data-db="<%= db  %>" data-key="<%= rows[key].id %>" data-name="<%= rows[key].value %>" data-id="<%= id %>"><%= rows[key].label %></span>
+                        <% } %>
+
+                    <% }else if(rows[key].type == 0 ){ %>
+
+                    <% }else { %>
+                    <% } %>
+                </div>
+            </div>
+            <% index++; %>
+            <% if(Object.keys(rows).length > index ){ %>
+            <div class="products-details-row-border"></div>
+            <% } %>
+        <% } %>
+
+        <% if(pages.length > 0){ %>
+            <hr class="products-details-row-border">
+            <div class="products-details-row">
+                <div class="products-details-row-col-name" data-name="includepages">
+                    <%= _includePages %>
+                </div>
+                <div class="products-details-row-col-data" data-name="includepages">
+                    <% for(var i = 0; i < pages.length; ++i) { %>
+                        <span class="btn-products-details-includepage ev-btn-products-details-includepage" data-page="<%= pages[i] %>"><%= book.getDisplayPageName(pages[i]) %></span>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+        </div>
+  </div>
+</script>
+<!-- /商品情報 -->

@@ -1,0 +1,1 @@
+[{"id":"hB0SL6mkwt-19","page_no":"19","url":"southslide\/index.html","link_page_no":"","link_url":"","tel":"","link_color":"1","x":"9","y":"70","width":"425","height":"220","type":"5","icon":"ico_link.png","option":"2","popup_size":{"width":"80","width_unit":"0","height":"80","height_unit":"0"}}]

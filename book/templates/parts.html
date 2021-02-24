@@ -1,0 +1,940 @@
+
+<script type="text/template" id="header-template">
+    <div id="header-left" class="header-left type-mt-hidden">
+    </div>
+    <div class="header-right">
+        <ul id="menu-setting" class="type-mt-hidden">
+          <li class="menu-btn-help"><span title="" id="btn-help"  class="ev-btn-help"></span></li>
+          <li class="menu-btn-option"><span title="" id="btn-option" class="ev-btn-option"></span></li>
+          <li class="menu-btn-fullscreen"><span title="" id="btn-fullscreen" class="ev-btn-fullscreen"></span></li>
+          <li class="menu-btn-printout"><span title="" id="btn-printout" class="ev-btn-printout"></span></li>
+          <li class="menu-btn-bookinfo"><span title="" id="btn-bookinfo" class="ev-btn-bookinfo" data-id="bookinfo"></span></li>
+        </ul>
+        <div id="txtsearch-box" class="type-mt-hidden">
+          <form name="searchformH" id="txtsearch-form" method="get" action="#">
+          <input name="searchKeywordH" id="txtsearch-input" aria-label="txtsearch-input" class="header-txtsearch-input pc" value="" type="text" />
+          <div  id="btn-txtsearch-icon" class="txtsearch-icon btn-search pc disabled"></div>
+          </form>
+        </div>
+        <!-- ページ検索欄 -->
+        <div id="pageinput-box">
+            <form name="pagesearch-form" id="pagesearch-form" method="get" action="#">
+            <span style="float:left;" id="pagesearch-label">：</span>
+            <span class="pageinput-frame"><input type="text" id="input-targetpage" aria-label="input-targetpage" class="pageinput-input pc" maxlength="20" value="1"></span>
+            &nbsp;<span style="float:left;margin-left:6px;margin-right:6px;">/ <span id="allpage-no"></span> </span>
+            </form>
+        </div>
+    </div>
+    <div class="btn-sns">
+        <ul id="externalapi" class="externalapi-list">
+        </ul>
+    </div>
+</script>
+
+<script type="text/template" id="footer-template">
+    <!--  ページ番号ラベル、スクロールバー -->
+    <div id="pageno-box">
+      <div id="pageno-label-l" class="pageno-label"></div>
+      <div id="slider" class="pc" style="background: transparent; height: 20px; margin-top: 3px; z-index: 1;"></div>
+      <div id="slider-image" style="background: #fff; height: 2px; margin-top: 12px; z-index: 0;"></div>
+      <div id="pageno-label-r" class="pageno-label"></div>
+    </div>
+    <!-- フッターアイコン領域 -->
+    <div id="footer-icon-box" data-role="main pc">
+        <div id="footer-centericon" class="pc">
+          <ul id="footer-icon-center">
+            <li class="ev-icon-footer"><button aria-label="moveleftlimit" id="btn-moveleftlimit"></button></li>
+			<li><i class="spacer-s"></i></li>
+            <li class="ev-icon-footer"><button aria-label="moveleft" id="btn-moveleft"></button></li>
+			<li><i class="spacer-m"></i></li>
+            <li class="ev-icon-footer"><button aria-label="moveright" id="btn-moveright"></button></li>
+			<li><i class="spacer-s"></i></li>
+            <li class="ev-icon-footer"><button aria-label="moverightlimit" id="btn-moverightlimit"></button></li>
+          </ul>
+        </div>
+        <ul id="footer-icon-left" class="pc">
+            <!-- 目次一覧 -->
+            <li class="ev-icon-footer"><button aria-label="listmenu" id="btn-listmenu" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- ページ一覧 -->
+            <li class="ev-icon-footer"><button aria-label="thumbnail" id="btn-thumbnail" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- 付箋一覧 -->
+            <li class="ev-icon-footer"><button aria-label="fusenlist" id="btn-fusenlist" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- 切り抜き画像一覧 -->
+            <li class="ev-icon-footer"><button aria-label="croplist" id="btn-croplist" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- 関連リンク一覧 -->
+            <li class="ev-icon-footer"><button aria-label="booklink" id="btn-booklink" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- コメント一覧 -->
+            <li class="ev-icon-footer"><button aria-label="commentlist" id="btn-commentlist" class="pc footer-lefticon type-mt-hidden"></button></li>
+            <!-- PDF -->
+            <li class="ev-icon-footer"><button aria-label="bookpdf" id="btn-bookpdf" class="pc footer-lefticon type-mt-hidden"></button></li>
+        </ul>
+        <ul id="footer-icon-right" class="pc">
+			<li class="ev-icon-footer"><button aria-label="db" id="btn-db" class="footer-lefticon type-mt-hidden"></button></li>
+			<li class="ev-icon-footer"><button aria-label="fusen" id="btn-fusen" class="footer-lefticon type-mt-hidden"></button></li>
+			<li class="ev-icon-footer"><button aria-label="crop" id="btn-crop" class="footer-lefticon type-mt-hidden"></button></li>
+			<li class="ev-icon-footer"><button aria-label="memo" id="btn-memo" class="footer-lefticon type-mt-hidden"></button></li>
+			<li class="ev-icon-footer"><button aria-label="txtcopy" id="btn-txtcopy" class="footer-lefticon type-mt-hidden"></button></li>
+			<li><i class="spacer-s"></i></li>
+			<li class="ev-icon-footer"><button aria-label="zoominout" id="btn-zoominout" class="btn-zoominout btn-zoomin footer-lefticon"></button></li>
+			<li class="ev-icon-footer"><button aria-label="autoflip" id="btn-autoflip" class="footer-lefticon type-mt-hidden"></button></li>
+        </ul>
+    </div>
+
+    <div id="footer-sub" class="footer-sub pc" data-role="sub">
+		<div class="footer-sub-lists" data-type="txtcopy">
+			<button id="btn-mode-drag-txtcopy" class="btn-mode-drag-txtcopy btn-footer-sub"></button>
+			<button id="btn-mode-drag-zoomarea" class="btn-mode-drag-zoomarea btn-footer-sub"></button>
+			<button id="btn-close-footer-sub" class="btn-close-txtcopymenu btn-close-submenu btn-footer-sub"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo" data-func="memo">
+			<button class="btn-memo-tool btn-footer-sub" data-type="curve"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="straight"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="square"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="circle"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="color"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="size"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="alpha"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="eraser"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="trash"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="undo"><i></i></button>
+			<button class="btn-close-submenu btn-close-memomenu btn-footer-sub" data-type="memo-menu"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-color" data-func="memo">
+			<button class="btn-memo-color btn-footer-sub" data-type="red"><i data-id="01"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="yellow"><i data-id="02"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="green"><i data-id="03"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="blue"><i data-id="04"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="skyblue"><i data-id="05"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="white"><i data-id="06"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="black"><i data-id="07"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-alpha" data-func="memo">
+			<button class="btn-memo-alpha btn-footer-sub" data-type="10"><i data-id="01"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="30"><i data-id="02"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="50"><i data-id="03"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="70"><i data-id="04"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="100"><i data-id="05"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-size" data-func="memo">
+			<button class="btn-memo-size btn-footer-sub" data-type="1"><i data-id="01"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="2"><i data-id="02"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="3"><i data-id="03"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="4"><i data-id="04"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="5"><i data-id="05"></i></button>
+		</div>
+
+	</div>
+
+</script>
+
+
+<!-- サイドメニュー -->
+<script type="text/template" id="menu-template">
+      <!-- サイドメニューヘッダー -->
+      <div id="sidemenu-header"><span id="sidemenu-header-title" class="sidemenu-header-title"></span>
+        <span class="box-close-btn pc ev-close-menu">
+            <span class="btn-close pc"></span>
+        </span>
+        <span class="box-maxmin-btn pc ev-maxmin-menu hidden">
+            <button id="btn-menu-maxmin" class="btn-menu-maxmin pc"></button>
+        </span>
+
+    </div>
+      <!-- サムネイル一覧 -->
+      <ul id="menu-pagelist" style="display:none;">
+          <ul id="pagelist-items" class="menu-lists pc pagelist-items">
+          </ul>
+          <div id="pagelist-slider" class="pc page-slider-contents"></div>
+          <div id="pagelist-slider-image" class="pc page-slider-contents"></div>
+        <!-- [sidemenu-pagelist-template] -->
+      </ul>
+      <!-- 付箋一覧 -->
+      <ul id="menu-fusenlist" style="display:none;">
+        <div id="fusenlist-header" class="fusenlist-header">
+          <!-- [sidemenu-fusenlist-header-template] -->
+        </div>
+        <ul id="fusenlist-items" class="menu-lists pc fusenlist-items">
+          <!-- [sidemenu-fusenlist-template] -->
+        </ul>
+        <div id="fusenlist-footer">
+          <!-- [sidemenu-fusenlist-footer-template] -->
+        </div>
+      </ul>
+      <!-- 切り抜き一覧 -->
+      <ul id="menu-croplist" class="croplist-items" style="display:none;">
+          <!-- [sidemenu-croplist-template] -->
+      </ul>
+      <!-- 関連リンク -->
+      <ul id="menu-booklink" class="menu-lists pc booklinklist-items" style="display:none;">
+          <!-- [sidemenu-booklink-template] -->
+      </ul>
+      <!-- 全文検索 -->
+      <ul id="menu-txtsearch" class="pc txtsearchlist-items" style="display:none;">
+          <!-- [panel-txtsearch-template] -->
+      </ul>
+      <!-- 目次 -->
+      <ul id="menu-index" class="menu-lists pc bookindexlist-items" style="display:none;"></ul>
+      <!-- コメント -->
+      <ul id="menu-comment" class="allowselect" style="display:none;"></ul>
+      <!-- 閲覧履歴 -->
+      <ul id="menu-browsinghistory" class="menu-lists pc browsinghistorylist-items"></ul>
+      <!-- オプション -->
+      <ul id="menu-option" class="menu-lists pc optionlist-items"></ul>
+      <!--  サイドメニューのフッター -->
+      <div id="sidemenu-footer"></div>
+</script>
+
+
+<script type="text/template" id="sidemenu-index-row-template">
+<!-- 1階層目 -->
+<li class="index-row-top">
+
+<% if (enabled === true) { %>
+  <a class="index-row index-over">
+<% }else{ %>
+  <a class="index-row index-noover">
+<% } %>
+      <% if (color === "") { %>
+      <span class="index-color-item" style="visibility:hidden"></span>
+      <% }else{ %>
+      <span class="index-color-item" style="background:<%= color %>;"></span>
+      <% } %>
+      <span class="index-mark-item ev-index-mark-icon" data-type=""></span>
+      <span class="index-mark-<%= mark %> ev-index-mark-icon" data-type="icon"></span>
+      <p class="index-item ev-index-item" data-page="<%= page %>"  data-id="<%= id %>"><%= text %></p>
+  </a>
+  <%= child %>
+</li>
+</script>
+
+<script type="text/template" id="sidemenu-index-sub-template">
+<ul class="index-row-sub">
+    <%= items %>
+</ul>
+</script>
+
+<script type="text/template" id="sidemenu-index-sub-row-template">
+
+<li class="index-row-sub-item index-space<%= space %>">
+<% if (enabled === true) { %>
+  <a class="index-row index-over">
+<% }else{ %>
+  <a class="index-row index-noover">
+<% } %>
+      <% if (color === "") { %>
+      <span class="index-color-item" style="visibility:hidden"></span>
+      <% }else{ %>
+      <span class="index-color-item" style="background:<%= color %>;"></span>
+      <% } %>
+        <span class="index-mark-item index<%= space %> ev-index-mark-icon" data-type=""></span>
+        <span class="index-mark-<%= mark %> ev-index-mark-icon" data-type="icon"></span>
+      <p class="index-item ev-index-item" data-page="<%= page %>"  data-id="<%= id %>"><%= text %></p>
+    </a>
+    <%= child %>
+</li>
+</script>
+
+
+<!-- オプションメニュー -->
+<script type="text/template" id="optionmenu-template">
+<div id="optionmenu" class="optionmenu-panel pc" data-role="panel">
+    <div id="optionmenu-panel-title" class="optionmenu-panel-title pc">
+        <span><%= _option %></span><div class="btn-close btn-panel-close-s ev-btn-close-option pc"></div>
+    </div>
+    <div id="optionmenu-panel-body" class="optionmenu-panel-body pc">
+      <ul class="optionmenu-items">
+        <% if (enableNews) { %>
+        <li class="options-func" data-type="news"><div id="option-func-news" class="check-options check-func <%= news %>"></div><%= _option_news %></li>
+        <% } %>
+		<% if (enableFusen) { %>
+        <li class="options-func" data-type="fusen"><div id="option-func-fusen" class="check-options check-func <%= fusen %>"></div><%= _option_fusen %></li>
+        <% } %>
+        <% if (enableMemo) { %>
+			<li class="options-func" data-type="memo"><div id="option-func-memo" class="check-options check-func <%= memo %>"></div><%= _option_memo %></li>
+		<% } %>
+		<% if (enableLink) { %>
+        <li class="options-func" data-type="link"><div id="option-func-link" class="check-options check-func <%= link %>"></div><%= _option_link %></li>
+        <% } %>
+        <% if (enableMovie) { %>
+        <li class="options-func" data-type="movie"><div id="option-func-movie" class="check-options check-func <%= movie %>"></div><%= _option_movie %></li>
+        <% } %>
+        <% if (enableEmbed) { %>
+        <li class="options-func" data-type="embed"><div id="option-func-embed" class="check-options check-func <%= embed %>"></div><%= _option_embed %></li>
+        <% } %>
+        <% if (enableHighlight) { %>
+        <li class="options-func" data-type="highlight"><div id="option-func-highlight" class="check-options check-func <%= highlight %>"></div><%= _option_highlight %></li>
+        <% } %>
+        <% if (enableTooltip) { %>
+        <li class="options-func" data-type="tooltip"><div id="option-func-tooltip" class="check-options check-func <%= tooltip %>"></div><%= _option_tooltip %></li>
+        <% } %>
+        <% if (enableComment) { %>
+        <li class="options-func" data-type="comment_area"><div id="option-func-comment_area" class="check-options check-func <%= comment_area %>"></div><%= _option_comment_area %></li>
+        <% } %>
+        <% if (viewmode) { %>
+            <div class="panel-separator-line pc" data-type="option"></div>
+            <li class="options-title"><span><label><%= _option_viewmode %></label></span></li>
+            <div class="panel-separator-line pc" data-type="option"></div>
+            <% if (enableOpen) { %>
+            <li class="options-viewmode" data-type="open"><div id="viewmode-open" class="radio-options radio-viewmode <%= open %>"></div><span id="opt-icon-two"></span><%= _option_viewmode_open %></li>
+            <% } %>
+            <% if (enableUnit) { %>
+            <li class="options-viewmode" data-type="unit"><div id="viewmode-unit" class="radio-options radio-viewmode <%= unit %>"></div><span id="opt-icon-unit"></span><%= _option_viewmode_unit %></li>
+            <% } %>
+        <% } %>
+        <% if (movetype) { %>
+            <div class="panel-separator-line pc" data-type="option"></div>
+            <li class="options-title"><span><label><%= _option_movetype %></label></span></li>
+            <div class="panel-separator-line pc" data-type="option"></div>
+            <% if (enableFlip) { %>
+            <li class="options-movetype" data-type="flip"><div id="movetype1" class="radio-options radio-movetype <%= flip %>"></div><%= _option_movetype_real %></li>
+            <% } %>
+            <% if (enableSlide) { %>
+            <li class="options-movetype" data-type="slide"><div id="movetype2" class="radio-options radio-movetype <%= slide %>"></div><%= _option_movetype_slide %></li>
+            <% } %>
+            <% if (enableNoeffect) { %>
+            <li class="options-movetype" data-type="none"><div id="movetype0" class="radio-options radio-movetype <%= noeffect %>"></div><%= _option_movetype_none %></li>
+            <% } %>
+        <% } %>
+
+        <% if (enableDevicemode) { %>
+            <div class="panel-separator-line"></div>
+            <li class="options-title"><span><label><%= _option_devicemode %></label></span></li>
+            <div class="panel-separator-line"></div>
+            <li class="options-devicemode" data-type="pc"><div id="" class="radio-options sd radio-devicemode"></div><%= _option_devicemode_pc %></li>
+            <li class="options-devicemode" data-type="sd"><div id="" class="radio-options sd radio-devicemode"></div><%= _option_devicemode_sd %></li>
+        <% } %>
+
+    </ul>
+    </div>
+</div>
+</script>
+
+
+<!-- ページ一覧 -->
+<script type="text/template" id="sidemenu-pagelist-template">
+  <li class="pagelist-item<%= cssClass %> pagelist-item-row <%= float %>" id="<%= pageItemId %>">
+
+	<div class="pagelist-image-l<%= noimageLeft %> ev-pagelist-item pagelist-image-item" data-page="<%= leftpage %>">
+		<% if (leftFusenRed) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="r"></span>
+		<% } %>
+		<% if (leftFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="y"></span>
+		<% } %>
+		<% if (leftFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="b"></span>
+		<% } %>
+		<% if (leftMemo) { %>
+		<span class="icon-page-memo" data-type="l"><i></i></span>
+		<% } %>
+      <img id="pagelist-image<%= leftpage %>" data-page="<%= leftpage %>" class="pagelist-image ev-pagelist-image" src="" <%= imageWidth %> <%= imageHeight %>>
+      <div class="pagelist-image-label <%= floatLeft %>"><%= leftpageOutput %></div>
+    </div>
+
+	<div class="pagelist-image-r<%= noimageRight %> <%= border %> ev-pagelist-item pagelist-image-item" data-page="<%= rightpage %>">
+		<% if (rightFusenRed) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="r"></span>
+		<% } %>
+
+		<% if (rightFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="y"></span>
+		<% } %>
+
+		<% if (rightFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="b"></span>
+		<% } %>
+		<% if (rightMemo) { %>
+		<span class="icon-page-memo" data-type="r"><i></i></span>
+		<% } %>
+      <img id="pagelist-image<%= rightpage %>" data-page="<%= rightpage %>" class="pagelist-image ev-pagelist-image" src="" <%= imageWidth %> <%= imageHeight %>>
+      <div class="pagelist-image-label  <%= floatRight %>"><%= rightpageOutput %></div>
+    </div>
+
+  </li>
+</script>
+
+<!-- 付箋一覧:ヘッダー -->
+<script type="text/template" id="sidemenu-fusenlist-header-template">
+      <label class="lbl-fusen-color-select" data-color="0">
+          <div class="menu-fusen-color" id="menu-fusen-all">
+              <div id="menu-fusen-mini-color1"></div>
+              <div id="menu-fusen-mini-color2"></div>
+              <div id="menu-fusen-mini-color3"></div>
+          </div>
+          <div id="menu-fusen-color-radio0" class="ev-radio-menu-fusen radio-menu-fusen on"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="1">
+          <div class="menu-fusen-color" id="menu-fusen-color1"></div><div id="menu-fusen-color-radio1" class="ev-radio-menu-fusen radio-menu-fusen"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="2">
+          <div class="menu-fusen-color" id="menu-fusen-color2"></div><div id="menu-fusen-color-radio2" class="ev-radio-menu-fusen radio-menu-fusen"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="3">
+          <div class="menu-fusen-color" id="menu-fusen-color3"></div><div id="menu-fusen-color-radio3" class="ev-radio-menu-fusen radio-menu-fusen"></div>
+      </label>
+      <% if (enableNews) { %>
+      <label class="lbl-fusen-color-select" data-color="9">
+          <div class="menu-fusen-color" id="menu-fusen-color9"></div><div id="menu-fusen-color-radio9" class="ev-radio-menu-fusen radio-menu-fusen"></div>
+      </label>
+      <% } %>
+  <div class="ev-btn-fusen-allclear btn-fusen-allclear pc" id="btn-fusen-allclear"></div>
+
+</script>
+
+<!-- 付箋一覧 -->
+<script type="text/template" id="sidemenu-fusenlist-template">
+  <li class="fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>">
+    <div class="fusenlist-item-color <%= color %>"></div>
+    <div class="fusenlist-item-image" id="fusen-list-<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="fusenlist-item-page"><%= page  %></div>
+    <div class="fusenlist-item-text"><%= text  %></div>
+    <div class="btn-fusen-delete ev-fusen-delete" data-id="<%= id %>"></div>
+   </li>
+</script>
+
+<!-- お知らせ一覧 -->
+<script type="text/template" id="sidemenu-newslist-template">
+  <li class="fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>">
+    <div class="fusenlist-item-color <%= color %>"></div>
+    <div class="fusenlist-item-image" id="fusen-list-<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="fusenlist-item-page"><%= page  %></div>
+    <div class="fusenlist-item-text"><%= text  %></div>
+   </li>
+</script>
+
+<!-- 付箋一覧：フッター -->
+<script type="text/template" id="sidemenu-fusenlist-footer-template">
+
+</script>
+
+<!-- 切り抜き一覧画面 -->
+<script type="text/template" id="sidemenu-croplist-template">
+<div id="croplist-header" class="croplist-header">
+    <div class="crop-count-box"><%= _croppedNum %><div id="crop-count"></div></div>
+    <div class="btn-allclear ev-crop-alldelete"></div>
+    <div class="btn-alldownload ev-crop-alldownload"></div>
+</div>
+<ul id="croplist-items" class="menu-lists pc">
+</ul>
+</script>
+
+
+<!-- 切り抜き一覧 -->
+<script type="text/template" id="sidemenu-croplist-row-template">
+  <li class="croplist-item ev-croplist-item" data-page="<%= datapage %>">
+    <div class="croplist-image" data-page="<%= datapage %>"><img <%= imgstyle %> src="<%= thumbImage %>"  <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="croplist-text">
+      <div class="crop-pageno"><%= page %></div>
+      <div class="btn-crop-delete ev-crop-delete" data-id="<%= id %>"></div>
+      <div class="btn-crop-download ev-crop-download" data-id="<%= id %>"></div>
+    </div>
+  </li>
+</script>
+
+<!-- 関連リンク -->
+<script type="text/template" id="sidemenu-booklink-template">
+  <li class="booklink-item ev-booklink-item none-image" data-id="<%= id %>">
+    <div class="booklink-item-image"><img id="<%= imageId %>" src="<%= imgsrc %>"></div>
+    <div class="booklink-item-text"><%= text  %></div>
+  </li>
+</script>
+
+<!-- 全文検索結果メニュー -->
+<script type="text/template" id="panel-txtsearch-template">
+    <div id="menu-txtsearch-box">
+      <form name="searchform4" id="menu-txtsearch-form" method="get" action="#">
+        <div id="menu-txtsearch-inputbox" class="menu-txtsearch-inputbox pc">
+        <input name="keywords4" id="menu-txtsearch-input" class="menu-txtsearch-input pc" value="" type="text" placeholder="<%= _searchtxtInputPlaceholder %>" />
+        </div>
+        <div class="icon-search-box ev-icon-search-box">
+          <span id="btn-txtsearchicon" class="btn-txtsearchicon btn-search pc">
+        </div>
+        <div class="btn-clear-txtsearch ev-btn-clear-txtsearch"></div>
+      </form>
+    </div>
+    <ul id="txtsearch-result-items" class="menu-lists pc txtsearch-result-items">
+    </ul>
+</script>
+
+<!-- 全文検索結果:ページの帯 -->
+<script type="text/template" id="txtsearch-result-pagezone-template">
+    <li class="txtsearch-result-pagezone">
+      <div class="txtsearch-result-pageno"><%= pageno %><span class="charspace"></span></div>
+      <div class="txtsearch-result-hit"><%= _hitNum %>：<%= hit %><span class="charspace"></span></div>
+    </li>
+</script>
+<!-- 全文検索結果 -->
+<script type="text/template" id="txtsearch-result-template">
+    <li class="txtsearch-result-item ev-txtsearch-result-item" data-page="<%= page %>">
+      <div class="txtsearch-result-text"><%= text %><span class="charspace"></span></div>
+    </li>
+</script>
+
+
+<!-- 自動めくりパネル -->
+<script type="text/template" id="panel-autoflip-template">
+<div id="panel-autoflip" class="panelSmall" data-role="panel">
+    <div id="panel-autoflip-title">
+        <%= _autoflip %><div class="btn-close btn-panel-close-s ev-btn-close-autoflip pc"></div>
+    </div>
+    <div id="panel-autoflip-body">
+      <ul class="panel-autoflip-box">
+        <li><div class="btn-autoflip-left"></div></li>
+        <li><div class="btn-autoflip-stop"></div></li>
+        <li><div class="btn-autoflip-right"></div></li>
+      </ul>
+      <ul class="panel-autoflip-box select-speed">
+        <li id="autoflip-speed-slow"><a><div class="btn-radio"></div><%= _slow %></a></li>
+        <li id="autoflip-speed-normal"><a><div class="btn-radio"></div><%= _normal %></a></li>
+        <li id="autoflip-speed-fast"><a><div class="btn-radio"></div><%= _fast %></a></li>
+      </ul>
+    </div>
+</div>
+</script>
+
+<!-- PDF選択パネル -->
+<script type="text/template" id="panel-pdf-setting-template">
+  <div id="panel-pdf-setting" class="panel-pdf-setting pc" data-role="panel">
+    <div class="panel-pdf-setting-title">
+        <%= _pdf %><a class="btn-close btn-panel-close-s close-panel-pdfpanel pc" id="btn-close-pdfpanel"></a>
+    </div>
+    <div id="panel-pdf-setting-body" class="panel-pdf-setting-body">
+
+      <div class="panel-pdf-setting-box">
+        <% if (enableNowPageSelect) { %>
+        <!-- 左右ページ -->
+        <div class="panel-separator-line"></div>
+        <div class="row-pdf_setting">
+            <% if (enableOpenPageSelect) { %>
+            <!-- 左ページ -->
+            <label id="" data-id="setting-leftpage" for="rdo-pdf-setting-leftpage" class="ev-pdf-setting-target <%= disableLeftPage %>">
+                <span class="btn-icon icon-btn-pdf-left" id="rdo-pdf-setting-leftpage" data-id="setting-leftpage"></span>
+                <%= _leftpage %>
+            </label>
+            <!-- 右ページ -->
+            <label id="" data-id="setting-rightpage" for="rdo-pdf-setting-rightpage" class="ev-pdf-setting-target <%= disableRightPage %>">
+                <span class="btn-icon icon-btn-pdf-right" id="rdo-pdf-setting-rightpage" data-id="setting-rightpage"></span>
+                <%= _rightpage %>
+            </label>
+            <% } %>
+            <% if (enableUnitPageSelect) { %>
+            <!-- 現在のページ -->
+            <label id="" data-id="setting-nowpage"  class="ev-pdf-setting-target <%= disableNowPage %>">
+                <%= _nowpage %>
+                <span class="btn-icon icon-btn-pdf-now" id="rdo-pdf-setting-nowpage" data-id="setting-nowpage"></span>
+            </label>
+            <% } %>
+        </div>
+        <% } %>
+        <% if (enableNowPageSelect) { %>
+          <% if (enableAllPageSelect) { %>
+          <div class="panel-separator-line"></div>
+          <% } %>
+        <% } %>
+        <% if (enableAllPageSelect) { %>
+        <!-- 全ページ -->
+        <div class="row-pdf_setting">
+            <label for="rdo-pdf-setting-allpage" class="ev-pdf-setting-target" data-id="setting-allpage">
+                <%= _allpage %>
+                <span class="btn-icon icon-btn-pdf-all" id="rdo-pdf-setting-allpage" data-id="setting-allpage"></span>
+            </label>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<!-- 付箋色選択パネル -->
+<script type="text/template" id="panel-fusen-template">
+  <div id="panel-fusen" class="panel-fusen-select" data-role="panel">
+    <div class="panel-fusen-title">
+        <%= _fusen %><a href="#" class="btn-close  btn-panel-close-s btn-close-fusen pc" id="btn-close-fusenpanel"></a>
+    </div>
+    <div id="panel-fusen-body">
+      <div class="panel-fusen-caption"><%= _panel_fusen_caption %>
+      </div>
+      <div class="panel-fusen-box">
+        <ul id="list-fusencolor">
+        <li data-id="1">
+          <label id="fusenlabel1" data-id="1">
+          <div class="select-fusencolor1" data-id="1"></div>
+          <div class="fusencolor-box" data-id="1">
+            <div class="ev-fusen-select-color btn-radio on" id="rdo-select-fusen-color1"></div>
+          </div>
+          </label>
+        </li>
+        <li data-id="2">
+          <label id="fusenlabel2" data-id="2">
+          <div class="select-fusencolor2" data-id="2"></div>
+          <div class="fusencolor-box" data-id="2">
+            <a href="#"><div class="ev-fusen-select-color btn-radio" id="rdo-select-fusen-color2"></div></a>
+          </div>
+          </label>
+        </li>
+        <li data-id="3">
+          <label id="fusenlabel3" data-id="3">
+          <div class="select-fusencolor3" data-id="3"></div>
+          <div class="fusencolor-box" data-id="3">
+           <a href="#"><div class="ev-fusen-select-color btn-radio" id="rdo-select-fusen-color3"></div></a>
+          </div>
+          </label>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- 付箋のテンプレート -->
+<script type="text/template" id="fusen-template">
+  <div id="<%= fusenId %>" class="fusen-obj">
+    <div class="fusen-obj-title">
+        <span id="btn-change-fusen-color1" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span id="btn-change-fusen-color2" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span id="btn-change-fusen-color3" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span class="btn-close-fusen btn-close pc" id="btn-close-fusen<%= id %>" data-id="<%= id %>"></span>
+    </div>
+    <div class="fusen-obj-body">
+      <textarea id="fusen-text-fusen<%= id%>" class="fusen-obj-textarea" placeholder="<%= _fusenInputPlaceholder %>" data-id="<%= id %>"><%= text %></textarea>
+    </div>
+  </div>
+</script>
+
+<!-- お知らせのテンプレート -->
+<script type="text/template" id="news-template">
+  <div id="<%= id %>" class="news-obj">
+    <div class="news-obj-title">
+        <a href="#" class="btn-closenews" id="btn-closenews-<%= id %>"></a>
+    </div>
+    <div class="news-obj-body">
+      <%= text %>
+    </div>
+  </div>
+</script>
+
+<!-- コメント一覧 -->
+<script type="text/template" id="comment-menu-template">
+<div class="commentlist-items allowselect">
+    <div id="commentlist-header" class="commentlist-header">
+        <span  id="comment-normal-mode" class="comment-normal-mode">
+            <button id="btn-add-comment" class="btn-add-comment ev-btn-add-comment"></button>
+            <button id="btn-reload-comment" class="btn-reload-comment ev-btn-reload-comment"></button>
+            <% if (deletable) { %>
+            <button id="btn-deletemode-comment" class="btn-deletemode-comment ev-btn-deletemode-comment"></button>
+            <% } %>
+            <button id="btn-filter-comment" class="btn-filter-comment ev-btn-filter-comment onpage"></button>
+        </span>
+        <span id="comment-add-mode" class="comment-add-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment ev-btn-submit-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment ev-btn-cancel-comment"></button>
+        </span>
+        <span id="comment-reply-mode" class="comment-reply-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment ev-btn-submit-reply-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment ev-btn-cancel-reply-comment"></button>
+        </span>
+        <span id="comment-edit-mode" class="comment-edit-mode">
+            <button id="btn-deletemode-cancel-comment" class="btn-deletemode-cancel-comment ev-btn-deletemode-cancel-comment"></button>
+        </span>
+    </div>
+
+    <div id="commentlist-items" class="menu-lists pc commentlist-items">
+    </div>
+</div>
+</script>
+<script type="text/template" id="sidemenu-comment-add-input-template">
+  <div id="commentlist-input" class="commentlist-input pc">
+      <div id="comment-target-box" class="comment-target-box pc">
+          <ul>
+              <li class="ev-comment-target-select comment-target-book" data-target="0"><label><span class="comment-target-select" data-target="0"></span><%= targetBook %></label></li>
+              <% if (leftpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= leftpageNo %>"><label><span class="comment-target-select <%= selectLeftPage %>" data-target="<%= leftpageNo %>"></span><%= leftpageName %></label></li>
+              <% } %>
+              <% if (rightpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= rightpageNo %>"><label><span class="comment-target-select <%= selectRightPage %>" data-target="<%= rightpageNo %>"></span><%= rightpageName %></label></li>
+              <% } %>
+              <% if (thispage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= thispageNo %>"><label><span class="comment-target-select <%= selectThisPage %>" data-target="<%= thispageNo %>"></span><%= thispageName %></label></li>
+              <% } %>
+              <li class="ev-comment-target-select comment-target-area" data-target=""><label><span class="comment-target-select" data-target=""></span><%= targetArea %></label></li>
+          </ul>
+      </div>
+      <form name="commentUserForm" id="comment-user-form" class="comment-user-form pc" method="get" action="#">
+          <input name="inputCommentUser" id="comment-user-input" class="comment-user-input pc" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+      </form>
+      <form name="commentTextForm" id="comment-text-form" class="comment-text-form pc" method="get" action="#">
+          <textarea name="inputCommentText" id="comment-text-input" class="comment-text-input pc" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+      </form>
+  </div>
+</script>
+<script type="text/template" id="sidemenu-comment-reply-input-template">
+    <div id="commentlist-reply-input" class="commentlist-reply-input pc">
+        <form name="commentReplyUserForm" id="comment-user-form" class="comment-user-form pc" method="get" action="#">
+            <input name="inputCommentReplyUser" id="comment-reply-user-input" class="comment-user-input pc" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+        </form>
+        <form name="commentReplyTextForm" id="comment-text-form" class="comment-text-form pc" method="get" action="#">
+            <textarea name="inputCommentReplyText" id="comment-reply-text-input" class="comment-text-input pc" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+        </form>
+    </div>
+</script>
+<script type="text/template" id="sidemenu-comment-row-template">
+<!-- 1階層目 -->
+<li class="comment-row-top pc ev-comment-row-top  <%= selected %>" data-id="<%= id %>" data-no="<%= no %>">
+    <a>
+        <div class="comment-title-box pc ev-comment-title-box" data-no="<%= no %>" data-id="<%= id %>">
+            <span class="icon-toggole-comment-area pc" data-no="<%= no %>"></span>
+            <span class="comment-parent-user pc"><%= user %></span>
+            <button class="btn-reply-comment pc ev-btn-reply-comment" data-id="<%= id %>"></button>
+            <% if (deletable) { %>
+            <button class="btn-delete-comment-icon pc ev-btn-delete-comment-icon" data-id="<%= id %>"></button>
+            <% } %>
+
+            <span class="comment-reply-num<%= reply_num_disabled %> pc"><%= reply_num %></span>
+            <span class="comment-reply-num-name<%= reply_num_disabled %> pc"><%= reply_num_name %></span>
+        </div>
+        <div class="comment-items-target pc">
+            <span class="comment-target-mark pc" data-id="<%= id %>" data-type="<%= type %>" data-page="<%= page %>"><%= markname %></span>
+
+            <span class="comment-parent-date pc"><%= a_date %></span>
+        </div>
+        <div class="comment-item pc ev-comment-item" data-page="<%= page %>"  data-id="<%= id %>" data-no="<%= no %>">
+            <span class="ellipsis-icon ev-ellipsis-icon pc" data-no="<%= no %>"><%= ellipsis %></span>
+            <p id="<%= txtid %>" class="comment-plain-text" data-id="<%= id %>"  data-no="<%= no %>"><%= text %></p>
+            <%= child %>
+        </div>
+    </a>
+</li>
+</script>
+
+<script type="text/template" id="sidemenu-comment-sub-template">
+<ul class="comment-row-sub pc ev-comment-row-sub" data-no="<%= no %>">
+    <%= items %>
+</ul>
+</script>
+
+<script type="text/template" id="sidemenu-comment-sub-row-template">
+<!-- 返信 -->
+<li class="comment-row-sub-item comment-space1 pc">
+    <div class="replybox">
+    <div class="comment-reply-title-box pc">
+        <span class="comment-reply-user pc"><%= user %></span>
+        <% if (deletable) { %>
+        <button class="btn-delete-comment-sub-icon pc ev-btn-delete-comment-icon" data-id="<%= id %>"></button>
+        <% } %>
+    </div>
+    <div class="comment-sub-item ev-comment-sub-item" data-page="<%= page %>"  data-id="<%= id %>">
+        <p class="comment-plain-text"><%= text %></p>
+    </div>
+    <div class="comment-item-footer">
+        <span class="comment-reply-date"><%= a_date %></span>
+    </div>
+  </div>
+</li>
+</script>
+
+<!-- ブックのお知らせ -->
+<script type="text/template" id="panel-bookinfo-template">
+    <div id="panel-bookinfo" class="panel-bookinfo bookinfo-contents allowselect pc" data-role="panel">
+        <div id="panel-bookinfo-title" class="panel-bookinfo-title pc">
+            <%= title %><span class="btn-close close-panel-bookinfo pc" id="btn-close-panel-bookinfo"></span>
+        </div>
+        <div id="panel-bookinfo-body" class="panel-bookinfo-body pc <%= full %>">
+            <%= body %>
+        </div>
+        <% if (isShowMore) { %>
+        <div id="panel-bookinfo-bottom" class="panel-bookinfo-bottom pc">
+            <span id="showmore-bookinfo" class="showmore-bookinfo pc"><%= showMore %></span>
+        </div>
+        <% } %>
+    </div>
+</script>
+<!-- ブックのお知らせ項目 -->
+<script type="text/template" id="panel-bookinfo-list-template">
+  <div class="bookinfo-item pc">
+      <div class="bookinfo-title pc"><%= title %></div>
+      <div class="bookinfo-date pc"><%= date %></div>
+      <% if (isLink) { %>
+          <a href="<%= url %>" target="_blank"><div class="bookinfo-text pc"><%= content %></div></a>
+      <% }else{ %>
+          <div class="bookinfo-text pc"><%= content %></div>
+      <% } %>
+  </div>
+</script>
+
+<!--印刷パネル -->
+<script type="text/template" id="panel-print-setting-template">
+  <div id="panel-print-setting" class="panel-print-setting" data-role="panel" data-type="input">
+    <div class="panel-print-setting-title">
+        <%= _print %><a class="btn-close btn-panel-close-s pc" id="btn-close-printpanel"></a>
+    </div>
+    <div id="panel-print-setting-body" class="panel-print-setting-body">
+
+      <div class="panel-print-setting-box">
+        <% if (enableNowPageSelect) { %>
+        <!-- 左右ページ -->
+        <div class="panel-separator-line"></div>
+        <div class="row-print_setting">
+            <% if (enableOpenPageSelect) { %>
+            <!-- 両ページ -->
+            <label id="" data-id="1" for="rdo-print-setting-bothpage" class="ev-print-setting-target <%= disableBothPage %>">
+                <span class="btn-radio" id="rdo-print-setting-bothpage" data-id="setting-bothpage"></span>
+                <%= _bothpage %>
+            </label>
+            <!-- 左ページ -->
+            <label id="" data-id="1" for="rdo-print-setting-leftpage" class="ev-print-setting-target <%= disableLeftPage %>">
+                <span class="btn-radio" id="rdo-print-setting-leftpage" data-id="setting-leftpage"></span>
+                <%= _leftpage %>
+            </label>
+            <!-- 右ページ -->
+            <label id="" data-id="1" for="rdo-print-setting-rightpage" class="ev-print-setting-target <%= disableRightPage %>">
+                <span class="btn-radio" id="rdo-print-setting-rightpage" data-id="setting-rightpage"></span>
+                <%= _rightpage %>
+            </label>
+            <% } %>
+            <% if (enableUnitPageSelect) { %>
+            <!-- 現在のページ -->
+            <label id="" data-id="1"  class="ev-print-setting-target <%= disableNowPage %>">
+                <%= _nowpage %>
+                <span class="btn-radio" id="rdo-print-setting-nowpage" data-id="setting-nowpage"></span>
+            </label>
+            <% } %>
+        </div>
+        <% } %>
+
+        <% if (enablePageSelect) { %>
+        <!-- ページ指定 -->
+        <div class="row-print_setting">
+            <label for="rdo-print-setting-selectpage" data-id="1" class="ev-print-setting-target">
+                <%= _pageselect %>
+                <span class="btn-radio" id="rdo-print-setting-selectpage" data-id="setting-selectpage"></span>
+            </label>
+        </div>
+        <div class="row-print_setting <%= _selectpage_print_class %>">
+            <div class="print-pageselect-form-box selectstart pc">
+                <form name="print-pageselect-form-start" id="print-pageselect-form-start" class="print-pageselect-form pc" method="get" action="#">
+                    <div class="print-pageselect-box pc">
+                        <input name="print-pageselect-input-start" id="print-pageselect-input-start" class="print-pageselect-input pc" type="text" placeholder=""/>
+                    </div>
+                </form>
+            </div>
+            <div class="print-pageselect-range-mark"><%= _pageselect_range_mark %></div>
+            <div class="print-pageselect-form-box selectend pc">
+                <form name="print-pageselect-form-end" id="print-pageselect-form-end" class="print-pageselect-form pc" method="get" action="#">
+                    <div class="print-pageselect-box pc">
+                        <input name="print-pageselect-input-end" id="print-pageselect-input-end" class="print-pageselect-input pc" type="text" placeholder=""/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <% } %>
+        <% if (enableAllPageSelect) { %>
+        <!-- 全ページ -->
+        <div class="row-print_setting">
+            <label for="rdo-print-setting-allpage" class="ev-print-setting-target">
+                <%= _allpage %>
+                <span class="btn-radio" id="rdo-print-setting-allpage" data-id="setting-allpage"></span>
+            </label>
+        </div>
+        <% } %>
+        <!-- 複数印刷メッセージ -->
+        <div id="panel-print_pages_message" class="<%= _pages_message_class %>">
+            <div><%= _pages_message %></div>
+            <div id="pageselect_message"><%= _pageselect_message %></div>
+        </div>
+        <% if (enableOpenTypeSelect) { %>
+        <div class="panel-separator-line"></div>
+        <!-- 印刷形態 -->
+        <div class="row-print_setting-title">
+            <div><%= _open_title %></div>
+        </div>
+        <!-- 見開き or 単ページ -->
+        <div class="row-print_setting">
+            <!-- 単ページ -->
+            <label id="" data-id="0" class="ev-print-setting-opentype">
+                <%= _unit_page %>
+                <span class="btn-radio" id="rdo-print-setting-unitpage" data-id="0" data-val="unit"></span>
+            </label>
+            <!-- 見開き -->
+            <label id="" data-id="1" class="ev-print-setting-opentype" data-id="opentype">
+                <%= _open_page %>
+                <span class="btn-radio" id="rdo-print-setting-openpage" data-id="1" data-val="open"></span>
+            </label>
+        </div>
+        <% } %>
+        <% if (enableFusenPrintSelect) { %>
+        <div class="panel-separator-line  <%= _fusen_print_class %>"></div>
+        <!-- 付箋も印刷 -->
+        <div class="row-print_setting">
+            <label class="ev-print-setting-fusenprint">
+                <%= _fusen_print %>
+                <span class="btn-checkbox check-print-setting-fusenprint" id="check-print-setting-fusenprint"></span>
+            </label>
+        </div>
+		<% } %>
+        <% if (enableMemoPrintSelect) { %>
+			<div class="panel-separator-line  <%= _memo_print_class %>"></div>
+			<!-- メモも印刷 -->
+			<div class="row-print_setting">
+				<label class="ev-print-setting-memoprint">
+					<%= _memo_print %>
+					<span class="btn-checkbox check-print-setting-memoprint" id="check-print-setting-memoprint"></span>
+				</label>
+			</div>
+		<% } %>
+        <div class="panel-print-footer">
+            <div id="btn-printout-page" class="btn-printout-page"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!--テキストコピークリップボードパネル -->
+<script type="text/template" id="panel-txtcopy-clipboad-template">
+<div id="panel-txtcopy-clipboad" class="panel-txtcopy-clipboad <%= deviceCode %>" data-role="panel" data-type="input">
+	<div class="panel-txtcopy-clipboad-title <%= deviceCode %>">
+		<%= _txtcopy_clipboad %><a class="btn-close btn-panel-close-s pc" id="btn-close-txtcopy-clipboad"></a>
+	</div>
+	<div class="panel-txtcopy-clipboad-header <%= deviceCode %>">
+		<div id="btn-txtcopy-clipboad" class="btn-txtcopy-clipboad"></div>
+		<div id="btn-txtcopy-clear" class="btn-txtcopy-clear"></div>
+	</div>
+	<div class="panel-txtcopy-clipboad-body <%= deviceCode %>">
+		<div class="panel-txtcopy-clipboad-scroll <%= deviceCode %>">
+			<div id="panel-txtcopy-clipboad-txtarea" class="panel-txtcopy-clipboad-txtarea allowselect <%= deviceCode %>"></div>
+		</div>
+	</div>
+</div>
+</script>
+
+<!-- ビデオタグのテンプレート -->
+<script type="text/template" id="video-template">
+<div id="<%= movieObjId %>" class="movie-obj">
+    <video id="<%= movieId %>" controlsList="nodownload" class="movie-video video-obj" <%= controls %> <%= autoplay %> <%= loop %>
+     preload="auto" width="<%= width %>" height="<%= height %>"
+     data-id="<%= id %>">
+     <source src="<%= file %>.mp4<%= getparam %>" type='video/mp4'>
+    </video>
+</div>
+</script>
+
+<!-- 音声再生のテンプレート -->
+<script type="text/template" id="audio-template">
+<div id="<%= movieObjId %>" class="movie-obj">
+    <audio id="<%= movieId %>" controlsList="nodownload" class="movie-obj audio-obj" <%= controls %> <%= autoplay %> <%= loop %>
+     preload="auto" width="<%= width %>" height="<%= height %>"
+     data-id="<%= id %>">
+     <source src="<%= file %>.mp3<%= getparam %>" type='audio/mp3'>
+     <source src="<%= file %>.ogg<%= getparam %>" type='audio/ogg'>
+    </audio>
+</div>
+</script>
+
+<!-- 埋め込みコンテンツのテンプレート:HTML5 -->
+<script type="text/template" id="embed-template">
+  <div id="<%= embedObjId %>" class="embed-obj" data-id="<%= id %>">
+    <iframe id="<%= embedId %>" src="<%= src %>" frameborder="0" seamless width="100%" height="100%" allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+</script>

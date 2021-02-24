@@ -1,0 +1,1 @@
+[{"id":"fPstVMFUzf-10","page_no":"10","url":"15mp4\/index.html","link_page_no":"","link_url":"","tel":"","link_color":"1","x":"44","y":"267","width":"183","height":"121","type":"5","icon":"ico_film.png","option":"2","popup_size":{"width":"80","width_unit":"0","height":"80","height_unit":"0"}}]

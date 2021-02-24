@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* ~~ Clearfix ~~ */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+/* Hide from Mac IE \*/
+
+.clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
+}
+/* Hide from Mac IE */
+
+html {
+    height: 100%;
+}
+body {
+    background: #666;
+    margin: 0;
+    padding: 0;
+    color: #666;
+    font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "Droid Sans", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    height: 100%;
+}
+.container {
+    width: 980px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+}
+hr {
+    height: 0px;
+    border-top: 1px solid #CCC;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    margin: 0px;
+}
+/* ~~ リンク ~~ */
+a:link {
+    color: #515151;
+    text-decoration: none;
+}
+a:visited {
+    color: #515151;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: underline;
+}
+/* ~~ ヘッダー ~~ */
+header {
+    background: #F5F5F5;
+    height: 56px;
+    position: relative;
+    /* [disabled]z-index: 1;
+*/
+    border-bottom: 1px solid #CCC;
+}
+header h1 {
+    top: 18px;
+    left: 20px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+}
+/* ~~ フッター ~~ */
+footer {
+    background: #F5F5F5;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    padding-top: 18px;
+    border-top: 1px solid #CCC;
+}
+
+.f-version{
+    display: inline;
+    top: 5px;
+    right: 20px;
+    font-size: 0.8rem;
+    position: absolute;
+}
+
+.container footer #page-top {
+    position: absolute;
+    right: 20px;
+    top: -30px;
+}
+.container footer #page-top a img {
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+/* ~~ コンテンツ ~~ */
+.content {
+    padding: 20px 0px 106px 20px;
+    margin-left: 0px;
+    overflow: hidden;
+}
+section {
+    overflow: hidden;
+}
+.crosshead {
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: #EBEBEB;
+    clear: both;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-top: 1px solid #CCC;
+}
+.column01 {
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 940px;
+    float: left;
+    margin-right: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.column02 {
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.column01 img,
+.column02 img {
+    float: left;
+    margin-right: 10px;
+}
+.column01 dl,
+.column02 dl {
+    overflow: hidden;
+}
+.column01 dl dt,
+.column02 dl dt {
+    font-weight: bold;
+}

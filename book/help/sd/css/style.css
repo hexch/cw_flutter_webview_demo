@@ -1,0 +1,130 @@
+@charset "utf-8";
+body {
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "Droid Sans", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+.g_header {
+    width   : 100%;
+    height  : 36px;
+    border-bottom: 1px solid #CCC;
+    line-height: 36px;
+    background: #F5F5F5;
+    font-size: 14px;
+}
+.head_title {
+    width: 100%;
+    text-align: center;
+}
+.nav_head {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+.nav_head_right {
+    position: absolute;
+    height: 16px;
+    width: 40px;
+    right: 0;
+    text-align: right;
+}
+.nav_head_right img {
+    vertical-align: middle;
+}
+.nav_head_right a {
+    margin-right: 10px;
+}
+
+/* ~~ フッター ~~ */
+footer {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.f-version{
+    display: inline;
+    top: 5px;
+    right: 20px;
+    font-size: 0.8rem;
+    position: absolute;
+}
+
+
+.content {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 0px;
+    overflow: hidden;
+}
+section {
+    overflow: hidden;
+}
+.crosshead {
+    background: #333;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #FFF;
+    padding: 2px 5px;
+}
+.column01 {
+    margin-bottom: 1em;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1em;
+}
+.column02 {
+    margin-bottom: 1em;
+    overflow: hidden;
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 1em;
+}
+@media screen and (max-width: 540px) {
+    .column02 {
+        width : 100%;
+    }
+}
+@media screen and (min-width: 540px) and  (max-width: 780px) {
+    .column02 {
+        width : 48%;
+    }
+}
+@media screen and (min-width: 780px) {
+    .column02 {
+        width : 32%;
+    }
+}
+
+.column03 {
+    margin-bottom: 1em;
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1em;
+}
+.column01 img,
+.column02 img {
+    float: left;
+    margin-right: 10px;
+}
+.column01 dl,
+.column02 dl {
+    overflow: hidden;
+}
+.column01 dl dt,
+.column02 dl dt,
+.column03 dl dt {
+    font-weight: bold;
+}
+.column03 img {
+    margin-bottom: 1em;
+}

@@ -1,0 +1,17 @@
+{
+    "ico_link.png" : "別ウィンドウ",
+    "ico_pagemove.png" : "ページ移動",
+    "ico_phone.png" : "電話",
+    "ico_mail.png" : "メール",
+    "ico_image.png" : "画像",
+    "ico_slide.png" : "スライド",
+    "ico_document.png" : "ファイル",
+    "ico_film.png" : "動画再生",
+    "ico_movie.png" : "動画リンク",
+    "ico_map.png" : "マップ",
+    "ico_input.png" : "入力",
+    "ico_cart.png" : "カート",
+    "ico_calendar.png" : "カレンダー",
+    "ico_question.png" : "疑問符",
+    "ico_exclamation.png" : "感嘆符"
+}

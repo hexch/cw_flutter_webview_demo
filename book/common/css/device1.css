@@ -1,0 +1,34 @@
+/*
+ * PC用の個別スタイル
+ *
+ */
+
+.mCSB_dragger_bar{
+    background: rgb(255, 255, 255)!important;
+    background: rgba(255, 255, 255, 0.8)!important;
+
+    width: 8px!important;
+
+    -webkit-border-radius: 3px!important;
+    -moz-border-radius: 3px!important;
+    border-radius: 3px!important;
+}
+
+.link-obj{
+    cursor:pointer !important;
+}
+
+.mCSB_inside>.mCSB_container{
+    margin-right: 0!important;
+}
+
+.mCSB_container{
+    margin-right: 0;
+}
+
+.messi-actions .messi-btnbox .btn{
+    padding-left : 10px !important;
+    padding-right : 10px !important;
+    min-width: 75px;
+    text-align: center;
+}

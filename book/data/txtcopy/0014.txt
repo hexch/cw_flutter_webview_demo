@@ -1,0 +1,1 @@
+[{"id":197,"width":77.632,"height":"6.924","x":"9.453","y":"820.264","option":0,"text":"13  Garden Terrace Wedding"},{"id":249,"width":332.625,"height":"33.804","x":"235.447","y":"708.646","option":0,"text":"\u30c8\u30fc\u30bf\u30eb\u30b3\u30fc\u30c7\u30a3\u30cd\u30fc\u30c8\u3067\u3001\u304a\u3075\u305f\u308a\u3089\u3057\u304f\u3002"}]

@@ -1,0 +1,1590 @@
+
+<!-- タブレット：ヘッダー -->
+<script type="text/template" id="sd-header-template">
+    <div class="header-left-sd">
+        <div class="sd-menu-topleft">
+            <div id="btn-sidenavi-menu" class="ev-btn-sd-header" data-id="navi"></div>
+        </div>
+    </div>
+    <div class="header-center-sd">
+        <div class="header-title"></div>
+    </div>
+    <div class="header-right-sd">
+        <div id="sd-btn-help" class="ev-btn-help ev-btn-sd-header" data-id="help"></div>
+        <div id="sd-btn-option" class="ev-btn-option ev-btn-sd-header" data-id="option"></div>
+        <div id="sd-btn-bookinfo" class="ev-btn-bookinfo ev-btn-sd-header" data-id="bookinfo"></div>
+    </div>
+</script>
+
+<!-- スマホ：ヘッダー -->
+<script type="text/template" id="sp-header-template">
+    <div class="header-left-sd">
+        <div class="sd-menu-topleft">
+            <div id="btn-sidenavi-menu" class="ev-btn-sd-header" data-id="navi"></div>
+        </div>
+    </div>
+    <div class="header-center-sd">
+        <div class="header-title"></div>
+    </div>
+    <div class="header-right-sd">
+        <div id="sd-btn-help" class="ev-btn-help ev-btn-sd-header" data-id="help"></div>
+    </div>
+</script>
+
+<!--  フッターサブエリア：タブレット -->
+<script type="text/template" id="sd-footer-sub-template">
+    <div id="footer-sub-box" class="footer-sub-box">
+        <div id="footer-sub-bg" class="footer-sub-bg"></div>
+    </div>
+</script>
+<!--  フッターサブエリア：スマートフォン -->
+<script type="text/template" id="sp-footer-sub-template">
+    <div id="footer-sub-box" class="footer-sub-box">
+        <div id="footer-sub-bg" class="footer-sub-bg"></div>
+    </div>
+</script>
+
+
+<script type="text/template" id="menu-pagemove-left-template">
+    <div id="menu-pagemove-left" class="menu-pagemove-left menu-pagemove ev-menu-pagemove"></div>
+</script>
+
+<script type="text/template" id="menu-pagemove-right-template">
+    <div id="menu-pagemove-right" class="menu-pagemove-right menu-pagemove ev-menu-pagemove"></div>
+</script>
+
+
+<!-- フッター：タブレット -->
+<script type="text/template" id="sd-footer-template">
+
+    <!--  ページ番号ラベル、スクロールバー -->
+    <div id="pageno-box">
+      <div id="pageno-label-l" class="pageno-label"></div>
+      <div id="slider" class="sd" style="background: transparent; height: 20px; margin-top: 3px; z-index: 1;"></div>
+      <div id="slider-image" style="background: #fff; height: 2px; margin-top: 12px; z-index: 0;"></div>
+      <div id="pageno-label-r" class="pageno-label"></div>
+    </div>
+    <!-- フッターアイコン領域 -->
+    <div id="footer-icon-box" data-role="main sd">
+        <ul id="sd-footer-icon-left">
+            <!-- 目次一覧 -->
+            <li><button title="" id="btn-listmenu" class="sd sd-footer-lefticon"></button></li>
+            <!-- ページ一覧 -->
+            <li><button title="" id="btn-thumbnail" class="sd sd-footer-lefticon"></button></li>
+            <!-- コメント一覧 -->
+            <li><button title="" id="btn-commentlist" class="btn-commentlist sd sd-footer-lefticon"></button></li>
+			<!-- 関連情報 -->
+            <li><button title="" id="btn-db" class="btn-commentlist sd sd-footer-lefticon"></button></li>
+			<!-- 付箋 -->
+            <li><button title="" id="btn-fusen" class="sd sd-footer-lefticon"></button></li>
+            <!-- 切り抜き -->
+			<li><button title="" id="btn-crop" class="sd sd-footer-lefticon"></button></li>
+			<!-- メモ -->
+			<li><button id="btn-memo" class="btn-memo sd sd-footer-lefticon"></button></li>
+			<!-- テキストコピー -->
+			<li><button id="btn-txtcopy" class="btn-txtcopy sd sd-footer-lefticon"></button></li>
+			<!-- 検索 -->
+            <li><button title="" id="btn-txtsearch" class="btn-txtsearch sd sd-footer-lefticon"></button></li>
+        </ul>
+    </div>
+
+    <div id="footer-sub" class="footer-sub sd" data-role="sub">
+		<div class="footer-sub-lists" data-type="txtcopy">
+			<button id="btn-mode-drag-txtcopy" class="btn-mode-drag-txtcopy btn-footer-sub"></button>
+			<button id="btn-mode-drag-zoomarea" class="btn-mode-drag-zoomarea btn-footer-sub"></button>
+			<button id="btn-close-footer-sub" class="btn-close-txtcopymenu btn-close-submenu btn-footer-sub"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo" data-func="memo">
+			<button class="btn-memo-tool btn-footer-sub" data-type="curve"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="straight"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="square"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="circle"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="color"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="size"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="alpha"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="eraser"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="trash"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="undo"><i></i></button>
+			<button class="btn-close-submenu btn-close-memomenu btn-footer-sub" data-type="memo-menu"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-color" data-func="memo">
+			<button class="btn-memo-color btn-footer-sub" data-type="red"><i data-id="01"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="yellow"><i data-id="02"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="green"><i data-id="03"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="blue"><i data-id="04"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="skyblue"><i data-id="05"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="white"><i data-id="06"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="black"><i data-id="07"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-alpha" data-func="memo">
+			<button class="btn-memo-alpha btn-footer-sub" data-type="10"><i data-id="01"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="30"><i data-id="02"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="50"><i data-id="03"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="70"><i data-id="04"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="100"><i data-id="05"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-size" data-func="memo">
+			<button class="btn-memo-size btn-footer-sub" data-type="1"><i data-id="01"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="2"><i data-id="02"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="3"><i data-id="03"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="4"><i data-id="04"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="5"><i data-id="05"></i></button>
+		</div>
+
+    </div>
+</script>
+
+<!-- フッター：スマートフォン -->
+<script type="text/template" id="sp-footer-template">
+    <!--  スマホ：ページ番号ラベル、スクロールバー -->
+    <div id="pageno-box">
+      <div id="pageno-label-l" class="pageno-label"></div>
+      <div id="slider" class="sp" style="background: transparent; height: 20px; margin-top: 3px; z-index: 1;"></div>
+      <div id="slider-image" style="background: #fff; height: 2px; margin-top: 12px; z-index: 0;"></div>
+      <div id="pageno-label-r" class="pageno-label"></div>
+    </div>
+    <!-- フッターアイコン領域 -->
+    <div id="footer-centericon" class="sp" data-role="main">
+        <ul id="footer-icon-center">
+            <!-- 目次一覧 -->
+            <li><button id="sp-btn-index" class="sd-footer-lefticon"></button></li>
+            <!-- ページ一覧 -->
+            <li><button id="btn-thumbnail" class="sp sd-footer-lefticon"></button></li>
+            <!-- 関連情報 -->
+            <li><button id="btn-db" class="btn-db sd sd-footer-lefticon"></button></li>
+			<!-- 付箋 -->
+            <li><button id="sp-btn-fusen" class="sd-footer-lefticon"></button></li>
+			<!-- メモ -->
+			<li><button id="btn-memo" class="btn-memo sd sd-footer-lefticon"></button></li>
+            <!-- 検索 -->
+            <li><button id="btn-txtsearch" class="btn-txtsearch sd sd-footer-lefticon"></button></li>
+        </ul>
+    </div>
+
+    <div id="footer-sub" class="footer-sub sp" data-role="sub">
+		<div class="footer-sub-lists" data-type="txtcopy">
+			<button id="btn-mode-drag-txtcopy" class="btn-mode-drag-txtcopy btn-footer-sub"></button>
+			<button id="btn-mode-drag-zoomarea" class="btn-mode-drag-zoomarea btn-footer-sub"></button>
+			<button id="btn-close-footer-sub" class="btn-close-txtcopymenu btn-close-submenu btn-footer-sub"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo">
+			<button class="btn-memo-tool btn-footer-sub" data-type="tool"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="color"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="size"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="alpha"><i></i></button>
+			<button class="btn-memo-tool btn-footer-sub" data-type="undo"><i></i></button>
+			<button class="btn-close-submenu btn-close-memomenu btn-footer-sub" data-type="memo-menu"></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-tool">
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="curve"><i data-id="curve"></i></button>
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="straight"><i data-id="straight"></i></button>
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="square"><i data-id="square"></i></button>
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="circle"><i data-id="circle"></i></button>
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="eraser"><i data-id="eraser"></i></button>
+			<button class="btn-memo-toolmenu btn-footer-sub" data-type="trash"><i data-id="trash"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-color">
+			<button class="btn-memo-color btn-footer-sub" data-type="red"><i data-id="01"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="yellow"><i data-id="02"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="green"><i data-id="03"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="blue"><i data-id="04"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="skyblue"><i data-id="05"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="white"><i data-id="06"></i></button>
+			<button class="btn-memo-color btn-footer-sub" data-type="black"><i data-id="07"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-alpha">
+			<button class="btn-memo-alpha btn-footer-sub" data-type="10"><i data-id="01"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="30"><i data-id="02"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="50"><i data-id="03"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="70"><i data-id="04"></i></button>
+			<button class="btn-memo-alpha btn-footer-sub" data-type="100"><i data-id="05"></i></button>
+		</div>
+		<div class="footer-sub-lists" data-type="memo-size">
+			<button class="btn-memo-size btn-footer-sub" data-type="1"><i data-id="01"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="2"><i data-id="02"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="3"><i data-id="03"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="4"><i data-id="04"></i></button>
+			<button class="btn-memo-size btn-footer-sub" data-type="5"><i data-id="05"></i></button>
+		</div>
+    </div>
+</script>
+
+<!-- サイドメニュー -->
+<script type="text/template" id="sd-menu-template">
+      <!-- サイドメニューヘッダー -->
+    <div id="sd-sidemenu-header">
+        <span id="btn-back-menu">
+            <span  class="sidemenu-arrow-l sidemenu-header-allow"></span>
+        </span>
+
+        <span id="sidemenu-header-title" class="sd-sidemenu-title sd-sidemenu-header-title"></span>
+        <span class="box-close-btn sd ev-close-menu">
+            <span class="btn-close sd"></span>
+        </span>
+        <span class="box-maxmin-btn sd ev-maxmin-menu hidden">
+            <button id="btn-menu-maxmin" class="btn-menu-maxmin sd"></button>
+        </span>
+    </div>
+      <!-- サムネイル一覧 -->
+      <ul id="menu-pagelist" style="display:none;">
+        <ul id="pagelist-items" class="menu-lists sd sd-pagelist-items">
+        </ul>
+        <div id="pagelist-slider" class="sd page-slider-contents"></div>
+        <div id="pagelist-slider-image" class="sd page-slider-contents"></div>
+      </ul>
+      <!-- 付箋一覧 -->
+      <ul id="menu-fusenlist" style="display:none;">
+        <div id="fusenlist-header" class="sd-fusenlist-header">
+          <!-- [sidemenu-fusenlist-header-template] -->
+        </div>
+        <ul id="fusenlist-items" class="menu-lists sd sd-fusenlist-items">
+          <!-- [sidemenu-fusenlist-template] -->
+        </ul>
+        <div id="fusenlist-footer">
+          <!-- [sidemenu-fusenlist-footer-template] -->
+        </div>
+      </ul>
+      <!-- 切り抜き一覧 -->
+      <ul id="menu-croplist" class="sd-croplist-items" style="display:none;">
+      </ul>
+      <!-- 関連リンク -->
+      <ul id="menu-booklink" class="menu-lists sd sd-booklinklist-items" style="display:none;">
+          <!-- ]sidemenu-booklink-template] -->
+      </ul>
+      <!-- 全文検索 -->
+      <ul id="menu-txtsearch" class="sd sd-txtsearchlist-items" style="display:none;"></ul>
+      <!-- 目次用リスト -->
+      <ul id="menu-index" class="menu-lists sd sd-bookindexlist-items" style="display:none;"></ul>
+      <!-- コメント -->
+      <ul id="menu-comment" class="allowselect" style="display:none;"></ul>
+      <!-- ブック閲覧履歴 -->
+      <ul id="menu-browsinghistory" class="sd-browsinghistorylist-items"></ul>
+      <!-- オプション -->
+      <ul id="menu-option" class="menu-lists sd sd-optionlist-items"></ul>
+      <!--  サイドメニューのフッター -->
+      <div id="sidemenu-footer"></div>
+</script>
+
+<!-- サイドメニュー：スマートフォン -->
+<script type="text/template" id="sp-menu-template">
+
+    <!-- サイドメニューヘッダー -->
+    <div id="sd-sidemenu-header">
+        <span id="btn-back-menu">
+            <span  class="sidemenu-arrow-l sidemenu-header-allow"></span>
+        </span>
+        <button id="btn-menu-maxmin" class="sd-btn-menu-maxmin"></button>
+        <span id="sidemenu-header-title" class="sp-sidemenu-title sp-sidemenu-header-title"></span>
+        <span class="box-close-btn sp ev-close-menu">
+            <span class="btn-close sp"></span>
+        </span>
+    </div>
+    <!-- サムネイル一覧 -->
+    <ul id="menu-pagelist" class="menu-lists sp" style="display:none;">
+        <ul id="pagelist-items" class="sp-pagelist-items">
+        </ul>
+        <div id="pagelist-slider" class="sp page-slider-contents"></div>
+        <div id="pagelist-slider-image" class="sp page-slider-contents"></div>
+      <!-- sidemenu-pagelist-template -->
+    </ul>
+    <!-- 付箋一覧 -->
+    <ul id="menu-fusenlist" class="sp" style="display:none;">
+      <div id="fusenlist-header" class="sp-fusenlist-header">
+          <!-- [sidemenu-fusenlist-header-template] -->
+      </div>
+      <ul id="fusenlist-items" class="menu-lists sp sp-fusenlist-items">
+          <!-- [sidemenu-fusenlist-template] -->
+      </ul>
+      <div id="fusenlist-footer">
+          <!-- [sidemenu-fusenlist-footer-template] -->
+      </div>
+    </ul>
+
+    <!-- 切り抜き一覧 -->
+    <ul id="menu-croplist" class="sp sp-croplist-items" style="display:none;">
+    </ul>
+
+    <!-- 関連リンク -->
+    <ul id="menu-booklink" class="menu-lists sp sp-booklinklist-items" style="display:none;">
+        <!-- sidemenu-booklink-template -->
+    </ul>
+    <!-- 全文検索 -->
+    <ul id="menu-txtsearch" class="sp sp-txtsearchlist-items" style="display:none;"></ul>
+    <!-- 目次用リスト -->
+    <ul id="menu-index" class="menu-lists sp sp-bookindexlist-items" style="display:none;"></ul>
+    <!-- コメント -->
+    <ul id="menu-comment" class="sp sp-commentlist-items" style="display:none;"></ul>
+    <!-- テキストコピークリップボードパネル -->
+    <ul id="menu-txtcopy-clipboad" class="sp sp-txtcopy-lipboad-items" style="display:none;"></ul>
+    <!-- ブック閲覧履歴 -->
+    <ul id="menu-browsinghistory" class="sp sp-browsinghistorylist-items"></ul>
+    <!-- オプション -->
+    <ul id="menu-option" class="sp sp-optionlist-items"></ul>
+    <!--  サイドメニューのフッター -->
+    <div id="sidemenu-footer"></div>
+</script>
+
+<!-- タブレット用カスタムナビゲーション -->
+<script type="text/template" id="sd-sidemenu-template">
+<ul id="sd-sidemenu-items">
+  <li id="navi-pagesearch" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-pagesearch"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _pageMove %></div>
+  </li>
+<!--
+  <li id="navi-pagelist" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-pagelist"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _pageList %></div>
+  </li>
+-->
+  <% if (enableFusen) { %>
+  <li id="navi-fusenlist" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-fusenlist"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _fusenList %></div>
+  </li>
+  <% } %>
+
+  <% if (enableCrop) { %>
+  <li id="navi-crop" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-croplist"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _cropList %></div>
+  </li>
+  <% } %>
+
+  <% if (enableBooklink) { %>
+  <li id="navi-booklink" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-booklink"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _bookLink %></div>
+  </li>
+  <% } %>
+
+  <% if (enablePdf) { %>
+  <li id="navi-bookpdf" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-bookpdf"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _pdfOpen %></div>
+  </li>
+  <% } %>
+
+  <% if (enableBrowsinghistory) { %>
+  <li id="navi-browsinghistory" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-browsinghistory"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _browsingHistory %></div>
+  </li>
+  <% } %>
+
+  <% if (enableDownload) { %>
+    <li id="navi-download" class="sd-sidemenu-item">
+      <div class="sd-sidemenu-item-icon"><div class="sd-icon-download"></div></div>
+      <div class="sd-sidemenu-item-text"><%= _download %></div>
+    </li>
+  <% } %>
+
+  <li id="navi-sns" class="sd-sidemenu-item-unavailable">
+    <ul id="externalapi-items">
+    </ul>
+  </li>
+</ul>
+</script>
+
+<!-- メニュータイトルバー -->
+<script type="text/template" id="sd-menu-title-bar-template">
+<div id="sd-menu-title-bar">
+    <span id="btn-back-menu">
+        <span class="sidemenu-arrow-l sidemenu-header-allow ev-sp-parentback"></span>
+    </span>
+    <span id="menu-title" class="sd-menu-title"></span>
+</div>
+</script>
+
+
+<!-- スマートフォン用カスタムナビゲーション -->
+<script type="text/template" id="sp-sidemenu-template">
+<ul id="sd-sidemenu-items">
+
+    <% if (enableBookInfo) { %>
+    <li id="navi-bookinfo" class="sd-sidemenu-item">
+      <div class="sd-sidemenu-item-icon"><div class="sd-icon-bookinfo"></div></div>
+      <div class="sd-sidemenu-item-text"><%= _bookInfo %></div>
+    </li>
+    <% } %>
+
+  <li id="navi-pagesearch" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-pagesearch"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _pageMove %></div>
+  </li>
+
+	<% if (enableTxtcopy) { %>
+	<li id="navi-txtcopy" class="sd-sidemenu-item">
+		<div class="sd-sidemenu-item-icon"><div class="sd-icon-txtcopy"></div></div>
+		<div class="sd-sidemenu-item-text"><%= _txtcopy %></div>
+	</li>
+	<% } %>
+
+  <% if (enableFusen) { %>
+  <li id="navi-fusenlist" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-fusenlist"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _fusenList %></div>
+  </li>
+  <% } %>
+
+
+
+  <% if (enableBooklink) { %>
+  <li id="navi-booklink" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-booklink"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _bookLink %></div>
+  </li>
+  <% } %>
+
+	<% if (enableComment) { %>
+	<li id="navi-commentlist" class="sd-sidemenu-item">
+	  <div class="sd-sidemenu-item-icon"><div class="sd-icon-comment"></div></div>
+	  <div class="sd-sidemenu-item-text"><%= _commentList %></div>
+	</li>
+	<% } %>
+
+  <% if (enableBrowsinghistory) { %>
+  <li id="navi-browsinghistory" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-browsinghistory"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _browsingHistory %></div>
+  </li>
+  <% } %>
+
+
+  <% if (enableDownload) { %>
+    <li id="navi-download" class="sd-sidemenu-item">
+      <div class="sd-sidemenu-item-icon"><div class="sd-icon-download"></div></div>
+      <div class="sd-sidemenu-item-text"><%= _download %></div>
+    </li>
+  <% } %>
+
+
+  <li id="navi-option" class="sd-sidemenu-item">
+    <div class="sd-sidemenu-item-icon"><div class="sd-icon-option"></div></div>
+    <div class="sd-sidemenu-item-text"><%= _option %></div>
+  </li>
+  <li id="navi-sns" class="sd-sidemenu-item-unavailable">
+    <ul id="externalapi-items">
+    </ul>
+  </li>
+
+</ul>
+</script>
+
+<!-- 目次：タブレット 1階層目 -->
+<script type="text/template" id="sd-sidemenu-index-row-template">
+<li class="sd-index-row-top" ontouchmove="event.preventDefault();">
+  <a data-id="<%= id %>">
+
+      <% if (color === "") { %>
+      <span class="sd-index-color-item" style="visibility:hidden"></span>
+      <% }else{ %>
+      <span class="sd-index-color-item" style="background:<%= color %>;"></span>
+      <% } %>
+      <span class="sd-index-mark-item ev-index-mark-icon" data-type=""></span>
+      <span class="sd-index-mark-<%= mark %> ev-index-mark-icon" data-type="icon"></span>
+      <p class="sd-index-item ev-index-item" data-page="<%= page %>"  data-id="<%= id %>"><%= text %></p>
+  </a>
+  <%= child %>
+</li>
+</script>
+
+<script type="text/template" id="sd-sidemenu-index-sub-template">
+<ul class="sd-index-row-sub">
+    <%= items %>
+</ul>
+</script>
+
+<!-- 目次：タブレット 2階層目以下 -->
+<script type="text/template" id="sd-sidemenu-index-sub-row-template">
+<li class="sd-index-row-sub-item index-space<%= space %>" ontouchmove="event.preventDefault();">
+    <a>
+        <% if (color === "") { %>
+        <span class="sd-index-color-item" style="visibility:hidden"></span>
+        <% }else{ %>
+        <span class="sd-index-color-item" style="background:<%= color %>;"></span>
+        <% } %>
+        <span class="sd-index-mark-item index<%= space %> ev-index-mark-icon" data-type=""></span>
+        <span class="sd-index-mark-<%= mark %> ev-index-mark-icon" data-type="icon"></span>
+      <p class="sd-index-item ev-index-item" data-page="<%= page %>"  data-id="<%= id %>"><%= text %></p>
+    </a>
+      <%= child %>
+
+</li>
+</script>
+
+
+<!-- タブレット用オプションメニュー -->
+<script type="text/template" id="optionmenu-template">
+<div id="optionmenu" class="optionmenu-panel sd" data-role="panel">
+    <div id="optionmenu-panel-title" class="optionmenu-panel-title sd">
+        <span><%= _option %></span><div class="btn-close btn-panel-close-s ev-btn-close-option sd"></div>
+    </div>
+    <div id="optionmenu-panel-body" class="optionmenu-panel-body sd">
+      <ul class="sd-optionmenu-items">
+        <% if (enableNews) { %>
+        <li class="options-func" data-type="news"><div id="option-func-news" class="check-options sd check-func <%= news %>"></div><%= _option_news %></li>
+        <% } %>
+		<% if (enableFusen) { %>
+        <li class="options-func" data-type="fusen"><div id="option-func-fusen" class="check-options sd check-func <%= fusen %>"></div><%= _option_fusen %></li>
+        <% } %>
+        <% if (enableMemo) { %>
+		<li class="options-func" data-type="memo"><div id="option-func-memo" class="check-options sd check-func <%= memo %>"></div><%= _option_memo %></li>
+		<% } %>
+		<% if (enableLink) { %>
+        <li class="options-func" data-type="link"><div id="option-func-link" class="check-options sd check-func <%= link %>"></div><%= _option_link %></li>
+        <% } %>
+        <% if (enableMovie) { %>
+        <li class="options-func" data-type="movie"><div id="option-func-movie" class="check-options sd check-func <%= movie %>"></div><%= _option_movie %></li>
+        <% } %>
+        <% if (enableEmbed) { %>
+        <li class="options-func" data-type="embed"><div id="option-func-embed" class="check-options sd check-func <%= embed %>"></div><%= _option_embed %></li>
+        <% } %>
+        <% if (enableHighlight) { %>
+        <li class="options-func" data-type="highlight"><div id="option-func-highlight" class="check-options sd check-func <%= highlight %>"></div><%= _option_highlight %></li>
+        <% } %>
+        <% if (enableComment) { %>
+        <li class="options-func" data-type="comment_area"><div id="option-func-comment_area" class="check-options sd check-func <%= comment_area %>"></div><%= _option_comment_area %></li>
+        <% } %>
+        <% if (viewmode) { %>
+            <div class="panel-separator-line sd" data-type="option"></div>
+            <li class="options-title"><span><label><%= _option_viewmode %></label></span></li>
+            <div class="panel-separator-line sd" data-type="option"></div>
+            <% if (enableOpen) { %>
+            <li class="options-viewmode" data-type="open">
+                <div id="viewmode-open" class="radio-options sd radio-viewmode <%= open %>"></div>
+                <span id="opt-icon-two" class="sd"></span>
+                <%= _option_viewmode_open %></li>
+            <% } %>
+            <% if (enableUnit) { %>
+            <li class="options-viewmode" data-type="unit">
+                <div id="viewmode-unit" class="radio-options sd radio-viewmode <%= unit %>"></div>
+                <span id="opt-icon-unit" class="sd"></span>
+                <%= _option_viewmode_unit %>
+            </li>
+            <% } %>
+        <% } %>
+
+        <% if (movetype) { %>
+            <div class="panel-separator-line sd" data-type="option"></div>
+            <li class="options-title"><span><label><%= _option_movetype %></label></span></li>
+            <div class="panel-separator-line sd" data-type="option"></div>
+            <% if (enableFlip) { %>
+            <li class="options-movetype" data-type="flip"><div id="movetype1" class="radio-options sd radio-movetype <%= flip %>"></div><%= _option_movetype_real %></li>
+            <% } %>
+            <% if (enableSlide) { %>
+            <li class="options-movetype" data-type="slide"><div id="movetype2" class="radio-options sd radio-movetype <%= slide %>"></div><%= _option_movetype_slide %></li>
+            <% } %>
+            <% if (enableNoeffect) { %>
+            <li class="options-movetype" data-type="none"><div id="movetype0" class="radio-options sd radio-movetype <%= noeffect %>"></div><%= _option_movetype_none %></li>
+            <% } %>
+        <% } %>
+
+
+        <% if (enableDevicemode) { %>
+            <div class="panel-separator-line"></div>
+            <li class="options-title"><span><label><%= _option_devicemode %></label></span></li>
+            <div class="panel-separator-line"></div>
+            <li class="options-devicemode" data-type="pc"><div id="" class="radio-options sd radio-devicemode"></div><%= _option_devicemode_pc %></li>
+            <li class="options-devicemode" data-type="sd"><div id="" class="radio-options sd radio-devicemode"></div><%= _option_devicemode_sd %></li>
+        <% } %>
+
+
+    </ul>
+    </div>
+</div>
+</script>
+
+<!-- スマートフォン用オプション -->
+<script type="text/template" id="sp-sidemenu-option-template">
+    <% if (enableNews) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="news"><div id="option-func-news" class="check-options sp check-func <%= news %>"></div><%= _option_news %></li>
+    <% } %>
+	<% if (enableFusen) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="fusen"><div id="option-func-fusen" class="check-options sp check-func <%= fusen %>"></div><%= _option_fusen %></li>
+    <% } %>
+    <% if (enableMemo) { %>
+	<li class="options-func sp-option-item ev-option-item" data-type="memo"><div id="option-func-memo" class="check-options sp check-func <%= memo %>"></div><%= _option_memo %></li>
+	<% } %>
+	<% if (enableLink) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="link"><div id="option-func-link" class="check-options sp check-func <%= link %>"></div><%= _option_link %></li>
+    <% } %>
+    <% if (enableMovie) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="movie"><div id="option-func-movie" class="check-options sp check-func <%= movie %>"></div><%= _option_movie %></li>
+    <% } %>
+    <% if (enableEmbed) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="embed"><div id="option-func-embed" class="check-options sp check-func <%= embed %>"></div><%= _option_embed %></li>
+    <% } %>
+    <% if (enableHighlight) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="highlight"><div id="option-func-highlight" class="check-options sp check-func <%= highlight %>"></div><%= _option_highlight %></li>
+    <% } %>
+    <% if (enableComment) { %>
+    <li class="options-func sp-option-item ev-option-item" data-type="comment_area"><div id="option-func-comment_area" class="check-options sp check-func <%= comment_area %>"></div><%= _option_comment_area %></li>
+    <% } %>
+    <% if (viewmode) { %>
+        <div class="panel-separator-line sp" data-type="option"></div>
+        <li class="sp-option-item options-title"><span><label><%= _option_viewmode %></label></span></li>
+        <div class="panel-separator-line sp" data-type="option"></div>
+
+        <% if (enableOpen) { %>
+        <li class="options-viewmode sp-option-item ev-option-item" data-type="open">
+            <div id="viewmode-open" class="radio-options sp radio-viewmode <%= open %>"></div>
+            <span id="sp-opt-icon-two" class="sd"></span>
+            <%= _option_viewmode_open %>
+        </li>
+        <% } %>
+        <% if (enableUnit) { %>
+        <li class="options-viewmode sp-option-item ev-option-item" data-type="unit">
+            <div id="viewmode-unit" class="radio-options sp radio-viewmode <%= unit %>"></div>
+            <span id="sp-opt-icon-unit" class="sd"></span>
+            <%= _option_viewmode_unit %>
+        </li>
+        <% } %>
+    <% } %>
+    <% if (movetype) { %>
+        <div class="panel-separator-line sp" data-type="option"></div>
+        <li class="sp-option-item options-title"><span><label><%= _option_movetype %></label></span></li>
+        <div class="panel-separator-line sp" data-type="option"></div>
+        <% if (enableFlip) { %>
+        <li class="options-movetype sp-option-item" data-type="flip"><div id="movetype1" class="radio-options sp radio-movetype <%= flip %>"></div><%= _option_movetype_real %></li>
+        <% } %>
+        <% if (enableSlide) { %>
+        <li class="options-movetype sp-option-item" data-type="slide"><div id="movetype2" class="radio-options sp radio-movetype <%= slide %>"></div><%= _option_movetype_slide %></li>
+        <% } %>
+        <% if (enableNoeffect) { %>
+        <li class="options-movetype sp-option-item" data-type="none"><div id="movetype0" class="radio-options sp radio-movetype <%= noeffect %>"></div><%= _option_movetype_none %></li>
+        <% } %>
+    <% } %>
+
+
+</script>
+
+<!-- ページ一覧 -->
+<script type="text/template" id="sidemenu-pagelist-template">
+<li class="sd-pagelist-item<%= cssClass %> pagelist-item-row <%= float %>" id="<%= pageItemId %>" ontouchmove="event.preventDefault();">
+	<div class="sd-pagelist-image-l<%= noimageLeft %>  <%= border %> ev-pagelist-item sd-pagelist-image-item" data-page="<%= leftpage %>">
+		<% if (leftFusenRed) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="r"></span>
+		<% } %>
+		<% if (leftFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="y"></span>
+		<% } %>
+		<% if (leftFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="b"></span>
+		<% } %>
+		<% if (leftMemo) { %>
+		<span class="icon-page-memo" data-type="l"><i></i></span>
+		<% } %>
+		<img id="pagelist-image<%= leftpage %>" data-page="<%= leftpage %>" class="pagelist-image ev-pagelist-image" src="" <%= imageWidth %> <%= imageHeight %>>
+		<div class="sd-pagelist-image-label <%= floatLeft %>"><%= leftpageOutput %></div>
+	</div>
+
+	<div class="sd-pagelist-image-r<%= noimageRight %> <%= border %> ev-pagelist-item sd-pagelist-image-item" data-page="<%= rightpage %>">
+		<% if (rightFusenRed) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="r"></span>
+		<% } %>
+		<% if (rightFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="y"></span>
+		<% } %>
+		<% if (rightFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="b"></span>
+		<% } %>
+		<% if (rightMemo) { %>
+		<span class="icon-page-memo" data-type="r"><i></i></span>
+		<% } %>
+		<img id="pagelist-image<%= rightpage %>" data-page="<%= rightpage %>" class="pagelist-image ev-pagelist-image" src="" <%= imageWidth %> <%= imageHeight %>>
+		<div class="sd-pagelist-image-label  <%= floatRight %>"><%= rightpageOutput %></div>
+	</div>
+</li>
+</script>
+
+<!-- ページ一覧:スマートフォン -->
+<script type="text/template" id="sp-sidemenu-pagelist-template">
+<li class="sp-pagelist-item<%= cssClass %> pagelist-item-row <%= float %>" id="<%= pageItemId %>" ontouchmove="event.preventDefault();">
+	<div class="sp-pagelist-image-l<%= noimageLeft %>  <%= border %> ev-pagelist-item sp-pagelist-image-item" data-page="<%= leftpage %>">
+		<% if (leftFusenRed) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="r"></span>
+		<% } %>
+		<% if (leftFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="y"></span>
+		<% } %>
+		<% if (leftFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="l" data-id="b"></span>
+		<% } %>
+		<% if (leftMemo) { %>
+		<span class="icon-page-memo" data-type="l"><i></i></span>
+		<% } %>
+		<img id="pagelist-image<%= leftpage %>" data-page="<%= leftpage %>" class="sp-pagelist-image ev-pagelist-image"  <%= imageWidth %> <%= imageHeight %>>
+		<div class="sp-pagelist-image-label  <%= floatLeft %>"><%= leftpageOutput %></div>
+	</div>
+	<div class="sp-pagelist-image-r<%= noimageRight %> <%= border %> ev-pagelist-item sp-pagelist-image-item" data-page="<%= rightpage %>">
+		<% if (rightFusenRed) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="r"></span>
+		<% } %>
+		<% if (rightFusenYellow) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="y"></span>
+		<% } %>
+		<% if (rightFusenBlue) { %>
+		<span class="icon-page-fusen" data-type="r" data-id="b"></span>
+		<% } %>
+		<% if (rightMemo) { %>
+		<span class="icon-page-memo" data-type="r"><i></i></span>
+		<% } %>
+		<img id="pagelist-image<%= rightpage %>" data-page="<%= rightpage %>" class="sp-pagelist-image ev-pagelist-image"  <%= imageWidth %> <%= imageHeight %>>
+		<div class="sp-pagelist-image-label   <%= floatRight %>"><%= rightpageOutput %></div>
+	</div>
+</li>
+</script>
+
+<script type="text/template" id="sd-sidemenu-fusenlist-header-template">
+      <label class="lbl-fusen-color-select" data-color="0">
+          <div class="menu-fusen-color" id="menu-fusen-all">
+              <div id="menu-fusen-mini-color1"></div>
+              <div id="menu-fusen-mini-color2"></div>
+              <div id="menu-fusen-mini-color3"></div>
+          </div>
+          <div id="menu-fusen-color-radio0" class="ev-radio-menu-fusen sd-radio-menu-fusen on"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="1">
+          <div class="menu-fusen-color" id="menu-fusen-color1"></div><div id="menu-fusen-color-radio1" class="ev-radio-menu-fusen sd-radio-menu-fusen"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="2">
+          <div class="menu-fusen-color" id="menu-fusen-color2"></div><div id="menu-fusen-color-radio2" class="ev-radio-menu-fusen sd-radio-menu-fusen"></div>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="3">
+          <div class="menu-fusen-color" id="menu-fusen-color3"></div><div id="menu-fusen-color-radio3" class="ev-radio-menu-fusen sd-radio-menu-fusen"></div>
+      </label>
+      <% if (enableNews) { %>
+      <label class="lbl-fusen-color-select" data-color="9">
+          <div class="menu-fusen-color" id="menu-fusen-color9"></div><div id="menu-fusen-color-radio9" class="ev-radio-menu-fusen sd-radio-menu-fusen"></div>
+      </label>
+      <% } %>
+      <div class="ev-btn-fusen-allclear btn-fusen-allclear sd" id="btn-fusen-allclear"></div>
+</script>
+
+<!-- 付箋色選択メニュー：スマートフォン -->
+<script type="text/template" id="sp-menu-fusen-template">
+<div id="sp-menu-fusen" class="sp-footer-menu">
+    <ul class="sp-fusen-color-items">
+        <li><span id="sp-fusen-color-red" class="selected"></span></li>
+        <li><span id="sp-fusen-color-yellow"></span></li>
+        <li><span id="sp-fusen-color-blue"></span></li>
+        <li><span id="sp-btn-fusenclose"></span></li>
+    <ul>
+      <div class="ev-btn-fusen-allclear sd-btn-fusen-allclear" id="btn-fusen-allclear"></div>
+</div>
+</script>
+
+<!-- 付箋一覧：タブレット -->
+<script type="text/template" id="sd-sidemenu-fusenlist-template">
+  <li class="sd-fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>" ontouchmove="event.preventDefault();">
+    <div class="sd-fusenlist-item-color <%= color %>"></div>
+    <div class="sd-fusenlist-item-image" id="fusen-list-<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="sd-fusenlist-item-page"><%= page  %></div>
+    <div class="sd-fusenlist-item-text"><%= text  %></div>
+    <div class="sd-btn-fusen-delete ev-fusen-delete" data-id="<%= id %>"></div>
+   </li>
+</script>
+
+<!-- お知らせ一覧：タブレット -->
+<script type="text/template" id="sd-sidemenu-newslist-template">
+  <li class="sd-fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>" ontouchmove="event.preventDefault();">
+    <div class="sd-fusenlist-item-color <%= color %>"></div>
+    <div class="sd-fusenlist-item-image" id="fusen-list-<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="sd-fusenlist-item-page"><%= page  %></div>
+    <div class="sd-fusenlist-item-text"><%= text  %></div>
+   </li>
+</script>
+
+<!-- 付箋一覧：タブレット：フッター -->
+<script type="text/template" id="sd-sidemenu-fusenlist-footer-template">
+</script>
+
+<!-- 付箋一覧：スマートフォン -->
+<script type="text/template" id="sp-sidemenu-fusenlist-template">
+  <li class="sp-fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>" ontouchmove="event.preventDefault();">
+    <div class="sp-fusenlist-item-color <%= color  %>"></div>
+    <div class="sp-fusenlist-item-image" id="<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="sp-fusenlist-item-page"><%= page  %></div>
+    <div class="sp-fusenlist-item-text"><%= text  %></div>
+    <div class="sp-btn-delete ev-fusen-delete" data-id="<%= id %>"></div>
+  </li>
+</script>
+
+<!-- 付箋一覧ヘッダー部：スマートフォン -->
+<script type="text/template" id="sp-sidemenu-fusenlist-header-template">
+      <label class="lbl-fusen-color-select" data-color="0">
+          <span id="sp-fusen-select-color-box0" class="sp-menu-fusen-select-color-box">
+              <div class="sp-menu-fusen-color" id="sp-menu-fusen-all">
+                  <div class="sp-menu-fusen-mini-color1"></div>
+                  <div class="sp-menu-fusen-mini-color2"></div>
+                  <div class="sp-menu-fusen-mini-color3"></div>
+              </div>
+          </span>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="1">
+          <span id="sp-fusen-select-color-box1" class="sp-menu-fusen-select-color-box">
+              <div class="sp-menu-fusen-color" id="menu-fusen-color1"></div>
+          </span>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="2">
+          <span id="sp-fusen-select-color-box2" class="sp-menu-fusen-select-color-box">
+              <div class="sp-menu-fusen-color" id="menu-fusen-color2"></div>
+          </span>
+      </label>
+      <label class="lbl-fusen-color-select" data-color="3">
+          <span id="sp-fusen-select-color-box3" class="sp-menu-fusen-select-color-box">
+              <div class="sp-menu-fusen-color" id="menu-fusen-color3"></div>
+          </span>
+      </label>
+      <% if (enableNews) { %>
+      <label class="lbl-fusen-color-select" data-color="9">
+          <span id="sp-fusen-select-color-box9" class="sp-menu-fusen-select-color-box">
+              <div class="sp-menu-fusen-color" id="menu-fusen-color9"></div>
+          </span>
+      </label>
+      <% } %>
+  <div class="btn-fusen-allclear sp ev-btn-fusen-allclear" id="btn-fusen-allclear"></div>
+</script>
+
+
+<!-- お知らせ一覧：スマートフォン -->
+<script type="text/template" id="sp-sidemenu-newslist-template">
+  <li class="sp-fusenlist-item ev-fusenlist-item" data-id="<%= id %>" data-type="<%= type %>" ontouchmove="event.preventDefault();">
+    <div class="sp-fusenlist-item-color <%= color  %>"></div>
+    <div class="sp-fusenlist-item-image" id="<%= id %>"><img src="<%= thumbImage %>" <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="sp-fusenlist-item-page"><%= page  %></div>
+    <div class="sp-fusenlist-item-text"><%= text  %></div>
+  </li>
+</script>
+
+<!-- 付箋一覧：スマートフォン：フッター -->
+<script type="text/template" id="sp-sidemenu-fusenlist-footer-template">
+</script>
+
+<!-- 切り抜き一覧画面 -->
+<script type="text/template" id="sidemenu-croplist-template">
+<div id="croplist-header" class="sd-croplist-header">
+    <div class="crop-count-box"><%= _croppedNum %><div id="crop-count"></div></div>
+    <div class="btn-allclear sd ev-crop-alldelete"></div>
+</div>
+<ul id="croplist-items" class="menu-lists sd">
+</ul>
+</script>
+
+<!-- 切り抜き一覧 -->
+<script type="text/template" id="sidemenu-croplist-row-template">
+  <li class="sd-croplist-item ev-croplist-item" data-page="<%= datapage %>" ontouchmove="event.preventDefault();">
+    <div class="croplist-image"  data-page="<%= datapage %>"><img <%= imgstyle %> src="<%= thumbImage %>"  <%= imageWidth %> <%= imageHeight %>></div>
+    <div class="croplist-text">
+      <span class="crop-pageno"><%= page %></span>
+      <div class="sd-btn-crop-delete ev-crop-delete" data-id="<%= id %>"></div>
+      <div class="sd-btn-crop-download ev-crop-download" data-id="<%= id %>"></div>
+    </div>
+  </li>
+</script>
+
+<!-- 関連リンク：タブレット -->
+<script type="text/template" id="sd-sidemenu-booklink-template">
+  <li class="sd-booklink-item ev-booklink-item none-image" data-id="<%= id %>" ontouchmove="event.preventDefault();">
+    <div class="sd-booklink-item-image"><img id="<%= imageId %>" src="<%= imgsrc %>"></div>
+    <div class="sd-booklink-item-text"><%= text  %></div>
+  </li>
+</script>
+
+<!-- 関連リンク：スマートフォン -->
+<script type="text/template" id="sp-sidemenu-booklink-template">
+  <li class="sp-booklink-item ev-booklink-item none-image" data-id="<%= id %>" ontouchmove="event.preventDefault();">
+    <div class="sp-booklink-item-image"><img id="<%= imageId %>" src="<%= imgsrc %>"></div>
+    <div class="sp-booklink-item-text"><%= text  %></div>
+  </li>
+</script>
+
+<!-- ブック閲覧履歴一覧画面 -->
+<script type="text/template" id="sd-sidemenu-browsinghistorylist-template">
+<div class="sd-browsinghistorylist-header" ontouchmove="event.preventDefault();">
+    <div class="btn-allclear sd ev-browsinghistorylist-alldelete"></div>
+</div>
+<ul id="browsinghistorylist-items" class="menu-lists sd sd-browsinghistorylist-items" ontouchmove="event.preventDefault();">
+</ul>
+</script>
+
+<!-- ブック閲覧履歴一覧 -->
+<script type="text/template" id="sd-browsinghistory-list-template">
+  <li class="sd-browsinghistorylist-item ev-browsinghistorylist-item" data-id="<%= id %>" ontouchmove="event.preventDefault();">
+    <div class="sd-browsinghistorylist-item-image" id="<%= id %>"><img id="<%= imageId %>" src="<%= imgsrc %>" ></div>
+    <div class="sd-browsinghistorylist-item-text"><%= text  %></div>
+    <div class="sd-btn-browsinghistorylist-delete ev-browsinghistorylist-delete" data-id="<%= id %>"></div>
+  </li>
+</script>
+
+
+<!-- ブック閲覧履歴一覧画面:スマートフォン  -->
+<script type="text/template" id="sp-sidemenu-browsinghistorylist-template">
+<div class="sp-browsinghistorylist-header" ontouchmove="event.preventDefault();">
+    <div class="btn-allclear sd ev-browsinghistorylist-alldelete"></div>
+</div>
+<ul id="browsinghistorylist-items" class="menu-lists sp sp-browsinghistorylist-items">
+</ul>
+</script>
+
+<!-- ブック閲覧履歴:スマートフォン -->
+<script type="text/template" id="sp-browsinghistory-list-template">
+  <li class="sp-browsinghistorylist-item ev-browsinghistorylist-item" data-id="<%= id %>" ontouchmove="event.preventDefault();">
+    <div class="sp-browsinghistorylist-item-image" id="<%= id %>"><img id="<%= imageId %>" src="<%= imgsrc %>"></div>
+    <div class="sp-browsinghistorylist-item-text"><%= text  %></div>
+    <div class="sp-btn-browsinghistorylist-delete ev-browsinghistorylist-delete" data-id="<%= id %>"></div>
+  </li>
+</script>
+
+
+<!-- 全文検索パネル：タブレット -->
+<script type="text/template" id="panel-txtsearch-template">
+
+<div id="menu-txtsearch-box">
+  <form name="searchform4" id="menu-txtsearch-form" method="get" action="#" onsubmit="return false;">
+      <div id="menu-txtsearch-inputbox" class="menu-txtsearch-inputbox sd">
+          <input name="keywords4" id="menu-txtsearch-input" class="menu-txtsearch-input sd" value="" type="text" placeholder="" />
+      </div>
+      <div class="icon-search-box ev-icon-search-box">
+          <span id="btn-txtsearchicon" class="btn-txtsearchicon btn-search sd">
+      </div>
+      <div class="sd-btn-clear-txtsearch ev-btn-clear-txtsearch"></div>
+  </form>
+</div>
+
+
+<ul id="txtsearch-result-items" class="menu-lists sd sd-txtsearch-result-items">
+</ul>
+</script>
+
+<!-- 全文検索結果:ページの帯 -->
+<script type="text/template" id="txtsearch-result-pagezone-template">
+    <li class="sd-txtsearch-result-pagezone" ontouchmove="event.preventDefault();">
+      <div class="sd-txtsearch-result-pageno"><%= pageno %><span class="charspace"></span></div>
+      <div class="sd-txtsearch-result-hit"><%= _hitNum %>：<%= hit %><span class="charspace"></span></div>
+    </li>
+</script>
+<!-- 全文検索結果 -->
+<script type="text/template" id="txtsearch-result-template">
+    <li class="sd-txtsearch-result-item ev-txtsearch-result-item" data-page="<%= page %>" ontouchmove="event.preventDefault();">
+      <div class="sd-txtsearch-result-text"><%= text %><span class="charspace"></span></div>
+    </li>
+</script>
+
+
+<!-- 全文検索結果:ページの帯 -->
+<script type="text/template" id="sp-txtsearch-result-pagezone-template">
+    <li class="sp-txtsearch-result-pagezone" ontouchmove="event.preventDefault();">
+      <div class="sp-txtsearch-result-pageno"><%= pageno %><span class="charspace"></span></div>
+      <div class="sp-txtsearch-result-hit"><%= _hitNum %>：<%= hit %><span class="charspace"></span></div>
+    </li>
+</script>
+
+<!-- 全文検索結果：スマートフォン -->
+<script type="text/template" id="sp-txtsearch-result-template">
+    <li class="sp-txtsearch-result-item ev-txtsearch-result-item" data-page="<%= page %>" ontouchmove="event.preventDefault();">
+      <div class="sp-txtsearch-result-text"><%= text %><span class="charspace"></span></div>
+    </li>
+</script>
+
+
+<!-- 全文検索パネル：スマートフォン -->
+<script type="text/template" id="sp-panel-txtsearch-template">
+<ul id="txtsearch-result-items" class="menu-lists sp sp-txtsearch-result-items"></ul>
+<div id="sp-menu-txtsearch-box">
+    <form name="searchform4" id="sp-menu-txtsearch-form" method="get" action="#">
+        <div id="sp-menu-txtsearch-inputbox" class="menu-txtsearch-inputbox sp">
+            <input name="keywords4" id="sp-menu-txtsearch-input" class="menu-txtsearch-input sp" value="" type="text" placeholder="<%= _searchtxtInputPlaceholder %>" />
+        </div>
+        <div class="icon-search-box ev-icon-search-box">
+             <span id="sp-btn-txtsearchicon" class="btn-txtsearchicon btn-search sp">
+        </div>
+        <div class="sp-btn-clear-txtsearch ev-btn-clear-txtsearch"></div>
+    </form>
+</div>
+</script>
+
+<!-- ページ移動パネル：タブレット -->
+<script type="text/template" id="sd-panel-pagesearch-template">
+<div id="menu-pagesearch-box" class="menu-pagesearch-box sd">
+  <div id="btn-moveleftlimit" class="btn-pagesearch-moveleftlimit sd"></div>
+  <div id="btn-moverightlimit" class="btn-pagesearch-moverightlimit sd"></div>
+    <form name="frm-pagesearch" id="menu-pagesearch-form" class="menu-pagesearch-form sd" method="get" action="#">
+        <div class="menu-pagesearch-inputbox">
+            <input name="keywords4" id="menu-pagesearch-input" class="menu-pagesearch-input sd ev-pagesearch-input" value="" type="text" placeholder="<%= _pageInputPlaceholder %>" />
+        </div>
+        <div class="btn-pagesearchicon ev-btn-pagesearchicon">
+            <span class="btn-search icon-pagesearchicon sd" ></span>
+        </div>
+    </form>
+    <div class="btn-close-pagesearch sd ev-btn-close-pagesearch">
+        <div class="ico-close-pagesearch sd"></div>
+    </div>
+</div>
+</script>
+
+<!-- ページ移動パネル：スマートフォン -->
+<script type="text/template" id="sp-panel-pagesearch-template">
+<div id="menu-pagesearch-box" class="menu-pagesearch-box sp">
+    <div id="btn-moveleftlimit" class="btn-pagesearch-moveleftlimit sp"></div>
+    <div id="btn-moverightlimit" class="btn-pagesearch-moverightlimit sp"></div>
+    <form name="frm-pagesearch" id="menu-pagesearch-form" class="menu-pagesearch-form sp" method="get" action="#">
+        <div class="menu-pagesearch-inputbox">
+            <input name="keywords4" id="menu-pagesearch-input" class="menu-pagesearch-input sp ev-pagesearch-input" value="" type="text" placeholder="<%= _pageInputPlaceholder %>" />
+        </div>
+        <div class="btn-pagesearchicon ev-btn-pagesearchicon">
+            <span class="btn-search icon-pagesearchicon sp" ></span>
+        </div>
+    </form>
+    <div class="btn-close-pagesearch sp ev-btn-close-pagesearch">
+        <div class="ico-close-pagesearch sp"></div>
+    </div>
+</div>
+</script>
+
+
+<!-- 自動めくりパネル -->
+<script type="text/template" id="panel-autoflip-template">
+<div id="panel-autoflip" class="panelSmall" data-role="panel">
+    <div id="panel-autoflip-title">
+        <%= _autoflip %><div class="btn-close btn-panel-close-s ev-btn-close-autoflip sd"></div>
+    </div>
+    <div id="panel-autoflip-body">
+      <ul class="panel-autoflip-box">
+        <li><div class="btn-autoflip-left"></div></li>
+        <li><div class="btn-autoflip-stop"></div></li>
+        <li><div class="btn-autoflip-right"></div></li>
+      </ul>
+      <ul class="panel-autoflip-box select-speed">
+        <li id="autoflip-speed-slow"><a><div class="btn-radio"></div><%= _slow %></a></li>
+        <li id="autoflip-speed-normal"><a><div class="btn-radio"></div><%= _normal %></a></li>
+        <li id="autoflip-speed-fast"><a><div class="btn-radio"></div><%= _fast %></a></li>
+      </ul>
+    </div>
+</div>
+</script>
+
+<!-- PDF選択パネル -->
+<script type="text/template" id="panel-pdf-setting-template">
+  <div id="panel-pdf-setting" class="panel-pdf-setting sd" data-role="panel">
+    <div class="panel-pdf-setting-title">
+        <%= _pdf %><a class="btn-close sd btn-panel-close-s close-panel-pdfpanel" id="btn-close-pdfpanel"></a>
+    </div>
+    <div id="panel-pdf-setting-body" class="panel-pdf-setting-body">
+
+      <div class="panel-pdf-setting-box">
+        <% if (enableNowPageSelect) { %>
+        <!-- 左右ページ -->
+        <div class="panel-separator-line"></div>
+        <div class="row-pdf_setting">
+            <% if (enableOpenPageSelect) { %>
+            <!-- 左ページ -->
+            <label id="" data-id="setting-leftpage" for="rdo-pdf-setting-leftpage" class="ev-pdf-setting-target <%= disableLeftPage %>">
+                <span class="btn-icon icon-btn-pdf-left sd" id="rdo-pdf-setting-leftpage" data-id="setting-leftpage"></span>
+                <%= _leftpage %>
+            </label>
+            <!-- 右ページ -->
+            <label id="" data-id="setting-rightpage" for="rdo-pdf-setting-rightpage" class="ev-pdf-setting-target <%= disableRightPage %>">
+                <span class="btn-icon icon-btn-pdf-right sd" id="rdo-pdf-setting-rightpage" data-id="setting-rightpage"></span>
+                <%= _rightpage %>
+            </label>
+            <% } %>
+            <% if (enableUnitPageSelect) { %>
+            <!-- 現在のページ -->
+            <label id="" data-id="setting-nowpage"  class="ev-pdf-setting-target <%= disableNowPage %>">
+                <%= _nowpage %>
+                <span class="btn-icon icon-btn-pdf-now sd" id="rdo-pdf-setting-nowpage" data-id="setting-nowpage"></span>
+            </label>
+            <% } %>
+        </div>
+        <% } %>
+        <% if (enableNowPageSelect) { %>
+          <% if (enableAllPageSelect) { %>
+          <div class="panel-separator-line"></div>
+          <% } %>
+        <% } %>
+        <% if (enableAllPageSelect) { %>
+        <!-- 全ページ -->
+        <div class="row-pdf_setting">
+            <label for="rdo-pdf-setting-allpage" class="ev-pdf-setting-target" data-id="setting-allpage">
+                <%= _allpage %>
+                <span class="btn-icon icon-btn-pdf-all sd" id="rdo-pdf-setting-allpage" data-id="setting-allpage"></span>
+            </label>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- 付箋色選択パネル -->
+<script type="text/template" id="panel-fusen-template">
+  <div id="panel-fusen" class="panel-fusen-select" data-role="panel">
+    <div class="panel-fusen-title">
+        <%= _fusen %><span class="btn-close sd btn-panel-close-s" id="btn-close-fusenpanel"></span>
+    </div>
+    <div id="panel-fusen-body">
+      <div class="panel-fusen-caption"><%= _panel_fusen_caption %>
+      </div>
+        <div class="panel-fusen-box">
+            <ul id="list-fusencolor">
+                <li data-id="1">
+                    <label id="fusenlabel1" data-id="1">
+                    <div class="select-fusencolor1" data-id="1"></div>
+                    <div class="fusencolor-box" data-id="1">
+                      <div class="ev-fusen-select-color btn-radio sd on" id="rdo-select-fusen-color1"></div>
+                    </div>
+                    </label>
+                </li>
+                <li data-id="2">
+                    <label id="fusenlabel2" data-id="2">
+                    <div class="select-fusencolor2" data-id="2"></div>
+                    <div class="fusencolor-box" data-id="2">
+                      <div class="ev-fusen-select-color btn-radio sd" id="rdo-select-fusen-color2"></div>
+                    </div>
+                    </label>
+                </li>
+                <li data-id="3">
+                    <label id="fusenlabel3" data-id="3">
+                    <div class="select-fusencolor3" data-id="3"></div>
+                    <div class="fusencolor-box" data-id="3">
+                      <div class="ev-fusen-select-color btn-radio sd" id="rdo-select-fusen-color3"></div>
+                    </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</script>
+
+<!-- 付箋のテンプレート -->
+<script type="text/template" id="fusen-template">
+  <div id="<%= fusenId %>" class="fusen-obj">
+    <div class="fusen-obj-title">
+        <span id="btn-change-fusen-color1" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span id="btn-change-fusen-color2" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span id="btn-change-fusen-color3" class="btn-change-fusen-color" data-id="<%= id %>"></span>
+        <span class="btn-close-fusen sd btn-close" id="btn-close-fusen<%= id %>" data-id="<%= id %>"></span>
+    </div>
+    <div class="fusen-obj-body">
+      <textarea id="fusen-text-fusen<%= id%>" class="fusen-obj-textarea" placeholder="<%= _fusenInputPlaceholder %>" data-id="<%= id %>"><%= text %></textarea>
+    </div>
+  </div>
+</script>
+
+
+<!-- 付箋のテンプレート：スマートフォン -->
+<script type="text/template" id="sp-fusen-template">
+  <div id="<%= fusenId %>" class="sp-fusen-obj" data-id="<%= id %>">
+    <div class="sp-fusen-obj-body">
+    </div>
+  </div>
+</script>
+
+<!-- お知らせのテンプレート:タブレット -->
+<script type="text/template" id="news-template">
+  <div id="<%= id %>" class="news-obj">
+    <div class="news-obj-title">
+        <a href="#" class="btn-closenews sd" id="btn-closenews-<%= id %>"></a>
+    </div>
+    <div class="news-obj-body">
+      <%= text %>
+    </div>
+  </div>
+</script>
+
+<!-- お知らせのテンプレート：スマートフォン -->
+<script type="text/template" id="sp-news-template">
+  <div id="<%= id %>" class="sp-news-obj">
+    <div class="sp-news-obj-body">
+    </div>
+  </div>
+</script>
+
+<!-- お知らせ詳細：スマートフォン -->
+<script type="text/template" id="sp-news-details-template">
+  <div class="sp-news-details">
+    <div id="news-details" class="sp-news-details-body">
+    </div>
+    <div id="close-news-details"></div>
+  </div>
+</script>
+
+<!-- コメント一覧:タブレット -->
+<script type="text/template" id="comment-menu-template">
+<div class="commentlist-items allowselect">
+    <div id="commentlist-header" class="commentlist-header">
+        <span  id="comment-normal-mode" class="comment-normal-mode">
+            <button id="btn-add-comment" class="btn-add-comment sd ev-btn-add-comment"></button>
+            <button id="btn-reload-comment" class="btn-reload-comment sd ev-btn-reload-comment"></button>
+            <% if (deletable) { %>
+            <button id="btn-deletemode-comment" class="btn-deletemode-comment sd ev-btn-deletemode-comment"></button>
+            <% } %>
+            <button id="btn-filter-comment" class="btn-filter-comment sd ev-btn-filter-comment onpage"></button>
+        </span>
+        <span id="comment-add-mode" class="comment-add-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment sd ev-btn-submit-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment sd ev-btn-cancel-comment"></button>
+        </span>
+        <span id="comment-reply-mode" class="comment-reply-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment sd ev-btn-submit-reply-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment sd ev-btn-cancel-reply-comment"></button>
+        </span>
+        <span id="comment-edit-mode" class="comment-edit-mode">
+            <button id="btn-deletemode-cancel-comment" class="btn-deletemode-cancel-comment sd ev-btn-deletemode-cancel-comment"></button>
+        </span>
+    </div>
+
+    <div id="commentlist-items" class="menu-lists sd commentlist-items">
+    </div>
+</div>
+</script>
+
+<!-- コメント一覧:スマートフォン -->
+<script type="text/template" id="sp-comment-menu-template">
+<div class="commentlist-items allowselect">
+    <div id="commentlist-header" class="commentlist-header">
+        <span  id="comment-normal-mode" class="comment-normal-mode">
+            <button id="btn-add-comment" class="btn-add-comment sd ev-btn-add-comment"></button>
+            <button id="btn-reload-comment" class="btn-reload-comment sd ev-btn-reload-comment"></button>
+            <% if (deletable) { %>
+            <button id="btn-deletemode-comment" class="btn-deletemode-comment sd ev-btn-deletemode-comment"></button>
+            <% } %>
+            <button id="btn-filter-comment" class="btn-filter-comment sd ev-btn-filter-comment onpage"></button>
+        </span>
+        <span id="comment-add-mode" class="comment-add-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment sd ev-btn-submit-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment sd ev-btn-cancel-comment"></button>
+        </span>
+        <span id="comment-reply-mode" class="comment-reply-mode">
+            <button id="btn-submit-comment" class="btn-submit-comment sd ev-btn-submit-reply-comment"></button>
+            <button id="btn-add-cancel-comment" class="btn-add-cancel-comment sd ev-btn-cancel-reply-comment"></button>
+        </span>
+        <span id="comment-edit-mode" class="comment-edit-mode">
+            <button id="btn-deletemode-cancel-comment" class="btn-deletemode-cancel-comment sd ev-btn-deletemode-cancel-comment"></button>
+        </span>
+    </div>
+
+    <div id="commentlist-items" class="menu-lists sp commentlist-items">
+    </div>
+</div>
+</script>
+
+<!-- コメント新規投稿欄:タブレット -->
+<script type="text/template" id="sidemenu-comment-add-input-template">
+  <div id="commentlist-input" class="commentlist-input sd">
+      <div id="comment-target-box" class="comment-target-box sd">
+          <ul>
+              <li class="ev-comment-target-select comment-target-book" data-target="0"><label><span class="comment-target-select sd" data-target="0"></span><%= targetBook %></label></li>
+              <% if (leftpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= leftpageNo %>"><label><span class="comment-target-select sd <%= selectLeftPage %>" data-target="<%= leftpageNo %>"></span><%= leftpageName %></label></li>
+              <% } %>
+              <% if (rightpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= rightpageNo %>"><label><span class="comment-target-select sd <%= selectRightPage %>" data-target="<%= rightpageNo %>"></span><%= rightpageName %></label></li>
+              <% } %>
+              <% if (thispage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= thispageNo %>"><label><span class="comment-target-select sd <%= selectThisPage %>" data-target="<%= thispageNo %>"></span><%= thispageName %></label></li>
+              <% } %>
+              <li class="ev-comment-target-select comment-target-area" data-target=""><label><span class="comment-target-select sd" data-target=""></span><%= targetArea %></label></li>
+          </ul>
+      </div>
+      <form name="commentUserForm" id="comment-user-form" class="comment-user-form sd" method="get" action="#">
+          <input class="hidden-input" />
+          <input name="inputCommentUser" id="comment-user-input" class="comment-user-input sd" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+      </form>
+      <form name="commentTextForm" id="comment-text-form" class="comment-text-form sd" method="get" action="#">
+          <textarea name="inputCommentText" id="comment-text-input" class="comment-text-input sd" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+      </form>
+  </div>
+</script>
+<!-- コメント返信投稿欄:タブレット -->
+<script type="text/template" id="sidemenu-comment-reply-input-template">
+    <div id="commentlist-reply-input" class="commentlist-reply-input sd">
+        <form name="commentReplyUserForm" id="comment-user-form" class="comment-user-form sd" method="get" action="#">
+            <input class="hidden-input" />
+            <input name="inputCommentReplyUser" id="comment-reply-user-input" class="comment-user-input sd" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+        </form>
+        <form name="commentReplyTextForm" id="comment-text-form" class="comment-text-form sd" method="get" action="#">
+            <input class="hidden-input" />
+            <textarea name="inputCommentReplyText" id="comment-reply-text-input" class="comment-text-input sd" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+        </form>
+    </div>
+</script>
+
+<!-- コメント新規投稿欄:スマートフォン -->
+<script type="text/template" id="sp-sidemenu-comment-add-input-template">
+  <div id="commentlist-input" class="commentlist-input sp">
+      <div id="comment-target-box" class="comment-target-box sd">
+          <ul>
+              <li class="ev-comment-target-select comment-target-book" data-target="0"><label><span class="comment-target-select ev-comment-target-select sd" data-target="0"></span><%= targetBook %></label></li>
+              <% if (leftpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= leftpageNo %>"><label><span class="comment-target-select sd <%= selectLeftPage %>" data-target="<%= leftpageNo %>"></span><%= leftpageName %></label></li>
+              <% } %>
+              <% if (rightpage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= rightpageNo %>"><label><span class="comment-target-select sd <%= selectRightPage %>" data-target="<%= rightpageNo %>"></span><%= rightpageName %></label></li>
+              <% } %>
+              <% if (thispage) { %>
+              <li class="ev-comment-target-select comment-target-page" data-target="<%= thispageNo %>"><label><span class="comment-target-select sd <%= selectThisPage %>" data-target="<%= thispageNo %>"></span><%= thispageName %></label></li>
+              <% } %>
+              <li class="ev-comment-target-select comment-target-area" data-target=""><label><span class="comment-target-select sd" data-target=""></span><%= targetArea %></label></li>
+          </ul>
+      </div>
+      <form name="commentUserForm" id="comment-user-form" class="comment-user-form sp" method="get" action="#">
+          <input class="hidden-input" />
+          <input name="inputCommentUser" id="comment-user-input" class="comment-user-input sp" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+      </form>
+      <form name="commentTextForm" id="comment-text-form" class="comment-text-form sp" method="get" action="#">
+          <input class="hidden-input" />
+          <textarea name="inputCommentText" id="comment-text-input" class="comment-text-input sp" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+      </form>
+  </div>
+</script>
+<!-- コメント返信投稿欄:スマートフォン -->
+<script type="text/template" id="sp-sidemenu-comment-reply-input-template">
+    <div id="commentlist-reply-input" class="commentlist-reply-input sp">
+        <form name="commentReplyUserForm" id="comment-user-form" class="comment-user-form sp" method="get" action="#">
+            <input class="hidden-input" />
+            <input name="inputCommentReplyUser" id="comment-reply-user-input" class="comment-user-input sp" value="<%= userName %>" type="text" placeholder="<%= commentUserPlaceholder %>" />
+        </form>
+        <form name="commentReplyTextForm" id="comment-text-form" class="comment-text-form sp" method="get" action="#">
+            <textarea name="inputCommentReplyText" id="comment-reply-text-input" class="comment-text-input sp" placeholder="<%= commentTextPlaceholder %>" ></textarea>
+        </form>
+    </div>
+</script>
+
+<!-- コメント親(タブレット) -->
+<script type="text/template" id="sd-sidemenu-comment-row-template">
+<!-- 1階層目 -->
+<li class="comment-row-top sd ev-comment-row-top  <%= selected %>" data-id="<%= id %>" data-no="<%= no %>" ontouchmove="event.preventDefault();">
+    <a>
+        <div class="comment-title-box sd ev-comment-title-box" data-no="<%= no %>">
+            <span class="icon-toggole-comment-area sd" data-no="<%= no %>"></span>
+            <span class="comment-parent-user sd"><%= user %></span>
+            <button class="btn-reply-comment ev-btn-reply-comment sd" data-id="<%= id %>"></button>
+            <% if (deletable) { %>
+            <button class="btn-delete-comment-icon ev-btn-delete-comment-icon sd" data-id="<%= id %>"></button>
+            <% } %>
+            <span class="comment-reply-num<%= reply_num_disabled %> sd"><%= reply_num %></span>
+            <span class="comment-reply-num-name<%= reply_num_disabled %> sd"><%= reply_num_name %></span>
+        </div>
+        <div class="comment-items-target sd">
+            <span class="comment-target-mark sd" data-id="<%= id %>" data-type="<%= type %>" data-page="<%= page %>"><%= markname %></span>
+            <span class="comment-parent-date sd"><%= a_date %></span>
+        </div>
+        <div class="comment-item sd ev-comment-item " data-page="<%= page %>"  data-id="<%= id %>" data-no="<%= no %>">
+            <span class="ellipsis-icon ev-ellipsis-icon sd" data-no="<%= no %>"><%= ellipsis %></span>
+            <p id="<%= txtid %>" class="comment-plain-text " data-id="<%= id %>"  data-no="<%= no %>"><%= text %></p>
+            <%= child %>
+        </div>
+    </a>
+</li>
+</script>
+
+<!-- コメント親(スマートフォン) -->
+<script type="text/template" id="sp-sidemenu-comment-row-template">
+<!-- 1階層目 -->
+<li class="comment-row-top sp ev-comment-row-top  <%= selected %>" data-id="<%= id %>" data-no="<%= no %>" ontouchmove="event.preventDefault();">
+    <a>
+        <div class="comment-title-box sp ev-comment-title-box" data-no="<%= no %>">
+            <span class="icon-toggole-comment-area sp" data-no="<%= no %>"></span>
+            <span class="comment-parent-user sp"><%= user %></span>
+
+            <button class="btn-reply-comment ev-btn-reply-comment sp" data-id="<%= id %>"></button>
+            <% if (deletable) { %>
+            <button class="btn-delete-comment-icon ev-btn-delete-comment-icon sp" data-id="<%= id %>"></button>
+            <% } %>
+            <span class="comment-reply-num<%= reply_num_disabled %> sp"><%= reply_num %></span>
+            <span class="comment-reply-num-name<%= reply_num_disabled %> sp"><%= reply_num_name %></span>
+        </div>
+        <div class="comment-items-target sp">
+            <span class="comment-target-mark sp" data-id="<%= id %>" data-type="<%= type %>" data-page="<%= page %>"><%= markname %></span>
+            <span class="comment-parent-date sp"><%= a_date %></span>
+        </div>
+        <div class="comment-item sp ev-comment-item " data-page="<%= page %>"  data-id="<%= id %>" data-no="<%= no %>">
+            <span class="ellipsis-icon ev-ellipsis-icon sp" data-no="<%= no %>"><%= ellipsis %></span>
+            <p id="<%= txtid %>" class="comment-plain-text " data-id="<%= id %>"  data-no="<%= no %>"><%= text %></p>
+            <%= child %>
+        </div>
+    </a>
+</li>
+</script>
+
+<!-- 返信コメント：タブレット -->
+<script type="text/template" id="sd-sidemenu-comment-sub-template">
+<ul class="comment-row-sub sd ev-comment-row-sub" data-no="<%= no %>">
+    <%= items %>
+</ul>
+</script>
+
+<!-- 返信コメント：スマートフォン -->
+<script type="text/template" id="sp-sidemenu-comment-sub-template">
+<ul class="comment-row-sub sp ev-comment-row-sub" data-no="<%= no %>">
+    <%= items %>
+</ul>
+</script>
+
+<!-- コメント返信投稿欄:タブレット -->
+<script type="text/template" id="sd-sidemenu-comment-sub-row-template">
+<!-- 返信 -->
+<li class="comment-row-sub-item sd comment-space1" ontouchmove="event.preventDefault();">
+    <div class="replybox sd">
+    <div class="comment-reply-title-box sd">
+        <span class="comment-reply-user sd"><%= user %></span>
+        <% if (deletable) { %>
+        <button class="btn-delete-comment-sub-icon sd ev-btn-delete-comment-icon" data-id="<%= id %>"></button>
+        <% } %>
+    </div>
+    <div class="comment-sub-item sd ev-comment-sub-item" data-page="<%= page %>"  data-id="<%= id %>">
+        <p class="comment-plain-text"><%= text %></p>
+    </div>
+    <div class="comment-item-footer sd">
+        <span class="comment-reply-date"><%= a_date %></span>
+    </div>
+  </div>
+</li>
+</script>
+
+<!-- コメント返信投稿欄:スマートフォン -->
+<script type="text/template" id="sp-sidemenu-comment-sub-row-template">
+<!-- 返信 -->
+<li class="comment-row-sub-item sp comment-space1" ontouchmove="event.preventDefault();">
+    <div class="replybox sp">
+    <div class="comment-reply-title-box sp">
+        <span class="comment-reply-user sp"><%= user %></span>
+        <% if (deletable) { %>
+        <button class="btn-delete-comment-sub-icon sp ev-btn-delete-comment-icon" data-id="<%= id %>"></button>
+        <% } %>
+    </div>
+    <div class="comment-sub-item sp ev-comment-sub-item" data-page="<%= page %>"  data-id="<%= id %>">
+        <p class="comment-plain-text"><%= text %></p>
+    </div>
+    <div class="comment-item-footer sp">
+        <span class="comment-reply-date"><%= a_date %></span>
+    </div>
+  </div>
+</li>
+</script>
+
+<!-- ブックのお知らせ:タブレット -->
+<script type="text/template" id="sd-panel-bookinfo-template">
+    <div id="panel-bookinfo" class="panel-bookinfo bookinfo-contents allowselect sd">
+        <div id="panel-bookinfo-title" class="panel-bookinfo-title sd">
+            <%= title %><span class="btn-close close-panel-bookinfo sd" id="btn-close-panel-bookinfo"></span>
+        </div>
+        <div id="panel-bookinfo-body" class="panel-bookinfo-body sd <%= full %>">
+            <%= body %>
+        </div>
+        <% if (isShowMore) { %>
+        <div id="panel-bookinfo-bottom" class="panel-bookinfo-bottom sd">
+            <span id="showmore-bookinfo" class="showmore-bookinfo sd"><%= showMore %></span>
+        </div>
+        <% } %>
+    </div>
+</script>
+<!-- ブックのお知らせ項目：タブレット -->
+<script type="text/template" id="sd-panel-bookinfo-list-template">
+  <div class="bookinfo-item sd" ontouchmove="event.preventDefault();">
+      <div class="bookinfo-title sd"><%= title %></div>
+      <div class="bookinfo-date sd"><%= date %></div>
+      <% if (isLink) { %>
+          <a href="<%= url %>" target="_blank"><div class="bookinfo-text sd"><%= content %></div></a>
+      <% }else{ %>
+          <div class="bookinfo-text sd"><%= content %></div>
+      <% } %>
+  </div>
+</script>
+
+<!-- ブックのお知らせ:スマートフォン -->
+<script type="text/template" id="sp-panel-bookinfo-template">
+    <div id="panel-bookinfo" class="panel-bookinfo bookinfo-contents allowselect sp">
+        <div id="panel-bookinfo-title" class="panel-bookinfo-title sp">
+            <%= title %><span class="btn-close close-panel-bookinfo sd" id="btn-close-panel-bookinfo"></span>
+        </div>
+        <div id="panel-bookinfo-body" class="panel-bookinfo-body sp <%= full %>">
+            <%= body %>
+        </div>
+        <% if (isShowMore) { %>
+        <div id="panel-bookinfo-bottom" class="panel-bookinfo-bottom sp">
+            <span id="showmore-bookinfo" class="showmore-bookinfo sp"><%= showMore %></span>
+        </div>
+        <% } %>
+    </div>
+</script>
+<!-- ブックのお知らせ項目：スマートフォン -->
+<script type="text/template" id="sp-panel-bookinfo-list-template">
+  <div class="bookinfo-item sp" ontouchmove="event.preventDefault();">
+      <div class="bookinfo-title sp"><%= title %></div>
+      <div class="bookinfo-date sp"><%= date %></div>
+      <% if (isLink) { %>
+          <a href="<%= url %>" target="_blank"><div class="bookinfo-text sp"><%= content %></div></a>
+      <% }else{ %>
+          <div class="bookinfo-text sp"><%= content %></div>
+      <% } %>
+  </div>
+</script>
+
+<!--テキストコピークリップボードパネル:タブレット -->
+<script type="text/template" id="panel-txtcopy-clipboad-template">
+    <div id="panel-txtcopy-clipboad" class="panel-txtcopy-clipboad <%= deviceCode %>" data-role="panel" data-type="input">
+        <div class="panel-txtcopy-clipboad-title <%= deviceCode %>">
+            <%= _txtcopy_clipboad %><a class="btn-close btn-panel-close-s pc" id="btn-close-txtcopy-clipboad"></a>
+        </div>
+        <div class="panel-txtcopy-clipboad-header <%= deviceCode %>">
+			<div id="btn-txtcopy-clear" class="btn-txtcopy-clear"></div>
+		</div>
+		<div class="panel-txtcopy-clipboad-body <%= deviceCode %>">
+			<div class="panel-txtcopy-clipboad-scroll <%= deviceCode %>">
+				<div id="panel-txtcopy-clipboad-txtarea" class="panel-txtcopy-clipboad-txtarea allowselect <%= deviceCode %>"></div>
+			</div>
+        </div>
+    </div>
+</script>
+
+<!-- クリップボードコピー:スマートフォン -->
+<script type="text/template" id="sp-txtcopy-clipboad-template">
+<div class="txtcopy-clipboad-items allowselect <%= deviceCode %>">
+	<div id="txtcopy-clipboad-header" class="panel-txtcopy-clipboad-header <%= deviceCode %>">
+		<div id="btn-txtcopy-cancel" class="btn-txtcopy-cancel <%= deviceCode %>"></div>
+	</div>
+	<div class="panel-txtcopy-clipboad-body <%= deviceCode %>">
+		<div class="panel-txtcopy-clipboad-scroll <%= deviceCode %>">
+			<div id="panel-txtcopy-clipboad-txtarea" class="panel-txtcopy-clipboad-txtarea allowselect <%= deviceCode %>"></div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<!-- ビデオタグのテンプレート -->
+<script type="text/template" id="video-template">
+<div id="<%= movieObjId %>" class="movie-obj">
+    <video id="<%= movieId %>" controlsList="nodownload" class="movie-video video-obj" <%= controls %> <%= autoplay %> <%= loop %>
+     preload="auto" width="<%= width %>" height="<%= height %>"
+     data-id="<%= id %>">
+     <source src="<%= file %>.mp4<%= getparam %>" type='video/mp4'>
+    </video>
+</div>
+</script>
+
+<!-- 音声再生のテンプレート -->
+<script type="text/template" id="audio-template">
+<div id="<%= movieObjId %>" class="movie-obj">
+    <audio id="<%= movieId %>" controlsList="nodownload" class="movie-obj audio-obj" <%= controls %> <%= autoplay %> <%= loop %>
+     preload="auto" width="<%= width %>" height="<%= height %>"
+     data-setup="{}" data-id="<%= id %>">
+     <source src="<%= file %>.mp3<%= getparam %>" type='audio/mp3'>
+     <source src="<%= file %>.ogg<%= getparam %>" type='audio/ogg'>
+    </audio>
+</div>
+</script>
+
+
+<!-- 埋め込みコンテンツのテンプレート:HTML5 -->
+<script type="text/template" id="embed-template">
+  <div id="<%= embedObjId %>" class="embed-obj" data-id="<%= id %>">
+    <iframe id="<%= embedId %>" src="<%= src %>" frameborder="0" seamless width="100%" height="100%" allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+</script>

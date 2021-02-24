@@ -1,0 +1,379 @@
+@charset "utf-8";
+
+
+
+
+
+/*----------------------------------------------------
+
+
+
+	Reset
+
+
+
+----------------------------------------------------*/
+
+
+
+
+
+html {
+
+	overflow-y: scroll;
+
+}
+
+
+
+
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote/*,th,td*/ {
+
+	margin: 0;
+	padding: 0;
+	word-wrap:break-word;
+}
+
+
+
+
+
+
+
+address,caption,cite,code,dfn,em,strong,th,var {
+
+	font-style: normal;
+
+}
+
+
+
+
+
+
+
+/*table {
+
+	border-collapse: collapse;
+
+	border-spacing: 0;
+
+}*/
+
+
+
+
+
+
+
+caption,th {
+
+	text-align: left;
+
+}
+
+
+
+
+
+
+
+q:before,q:after {
+
+	content: '';
+
+}
+
+
+
+
+
+
+
+object,embed {
+
+	vertical-align: top;
+
+}
+
+
+
+
+
+
+
+hr,legend {
+
+	display: none;
+
+}
+
+
+
+
+
+
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+
+
+
+
+
+
+img,abbr,acronym,fieldset {
+
+	border: 0;
+
+}
+
+
+
+
+
+
+
+li {
+
+	list-style-type: none;
+
+}
+
+
+
+
+
+
+
+p {
+
+	margin-bottom: 1em;
+
+}
+
+
+
+
+
+
+
+.clear {
+
+	clear:both;
+
+}
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------
+
+
+
+	Link
+
+
+
+----------------------------------------------------*/
+
+
+
+
+
+
+
+a:link {
+
+	text-decoration: underline;
+
+	color: #0099FF;
+
+}
+
+
+
+
+
+
+
+a:visited {
+
+	text-decoration: underline;
+
+}
+
+
+
+
+
+
+
+a:hover {
+
+	text-decoration: underline;
+
+}
+
+
+
+
+
+
+
+a:active {
+
+	text-decoration: underline;
+
+}
+
+
+
+
+
+
+
+/*----------------------------------------------------
+
+
+
+	Base
+
+
+
+----------------------------------------------------*/
+
+
+
+
+
+
+
+body {
+	color: #333333;
+	font-size: 12px;
+	font-family: verdana,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+	line-height: 1.5;
+	background: #FFFFFF;
+	text-align: center;
+}
+
+
+
+
+
+
+
+* + html body {
+
+	font-family: "メイリオ","Meiryo";
+
+}
+
+
+
+
+
+
+
+/*----------------------------------------------------
+
+
+
+	waku
+
+
+
+----------------------------------------------------*/
+
+
+
+
+
+#wrapper {
+	width: 800px;
+	text-align: left;
+	margin: 0px auto;
+	padding-top: 20px;
+
+}
+
+
+
+
+
+
+/*----------------------------------------------------
+
+
+
+	contents
+
+
+
+----------------------------------------------------*/
+
+
+
+#caption {
+	margin-bottom: 20px;
+}
+
+h2 img {
+	vertical-align: middle;
+}
+
+#content {
+	border-top: 1px solid #333333;
+	border-bottom: 1px solid #333333;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#columnLeft {
+	float: left;
+	width: 450px;
+}
+
+#columnRight {
+	float: right;
+	width: 297px;
+}
+
+#columnRight .frame img {
+	float: right;
+	width: 297px;
+}
+
+.frame img {
+	border: 1px solid #333333;
+}
+
+.imgNotation {
+	clear: both;
+	margin-top: 10px;
+	float: left;
+}
+
+#runningTxt {
+	margin-top: 10px;
+}
+
+#pager {
+	text-align: center;
+}
+
+#pager img {
+	vertical-align: middle;
+}

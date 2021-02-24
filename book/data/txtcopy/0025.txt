@@ -1,0 +1,1 @@
+[{"id":28,"width":79.363,"height":"5.77","x":"504.977","y":"821.828","option":0,"text":"Garden Terrace Wedding  24"}]

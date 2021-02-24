@@ -1,0 +1,14 @@
+[
+    {
+        "Link":
+         {
+            "icon_size": {"width":37,"height":32},
+            "icon_pos" : {"top":-12,"left":-12}
+        },
+        "Comment" :
+        {
+            "bg_color" : "#ffa500",
+            "bg_alpha" : 0.3
+        }
+    }
+]

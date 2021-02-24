@@ -1,0 +1,253 @@
+[
+    {
+        "lang" : "ja",
+        "check":"COMPLETE",
+        "noscript":"JavaScriptを有効にしてください。",
+        "functionName":
+        {
+            "pageList": "ページ一覧",
+            "pageMove" : "ページ移動",
+            "pdfOpen" : "PDF表示",
+            "catalogIndex": "目次",
+            "txtSearch": "全文検索",
+            "fusenList": "ふせん一覧",
+            "commentList" : "コメント一覧",
+            "bookInfo" : "お知らせ",
+            "cropList" : "切り抜き画像一覧",
+            "memo" : "ペン",
+            "txtcopy" : "テキストコピー",
+            "bookLink" : "関連リンク",
+            "browsingHistory":"ブック閲覧履歴",
+            "download" : "ダウンロード",
+            "option" : "オプション"
+        },
+        "app" : {
+            "download" : "ブックデータをダウンロードします。\n閲覧には専用アプリが必要です。"
+        },
+        "autoflip" : {
+            "slow" : "遅い",
+            "normal" : "標準",
+            "fast" : "速い"
+        },
+        "tooltip":{
+            "header" : {
+                "printout" : "ページを印刷します",
+                "fullscreen" : "全画面で表示します",
+                "exitFullscreen" : "全画面表示を終了します",
+                "help" : "操作方法を表示します",
+                "option" : "表示上の設定を変更します",
+                "bookinfo" : "お知らせを表示します"
+            },
+            "footer": {
+                "moveNext" : "次のページに移動します",
+                "moveBack" : "前のページに移動します",
+                "moveStart"  : "最初のページに移動します",
+                "moveEnd"  : "最終ページに移動します",
+                "bookIndex" : "目次を表示します",
+                "pageList" : "ページの一覧を表示します",
+                "bookLink" : "関連するリンクを表示します",
+                "bookPdf" : "PDFを表示します",
+                "autoflip" : "ページを自動でめくります",
+                "zoomIn" : "ページを拡大します",
+                "zoomOut" : "ページを縮小します",
+                "crop" : "ページ上の画像を切り抜きます",
+                "memo" : "ページ上に線画が書けます",
+                "txtcopy" : "テキストをコピーします",
+                "fusen" : "ページ上にふせんを貼ります",
+                "cropList" : "切り抜いた画像の一覧を表示します",
+                "commentList" : "コメントの一覧を表示します",
+                "fusenList" : "ふせんの一覧を表示します",
+                "page_db" : "|NAME|の一覧を表示します。",
+                "selectText" : "テキストを選択",
+                "dragPagearea" : "ページ上を移動"
+            },
+            "mouse" : {
+                "zoomIn" : "クリックで拡大",
+                "zoomInDrag" : "クリックで拡大<br>ドラッグで移動",
+                "zoomOutDrag" : "クリックで全体表示<br>ドラッグで移動"
+            }
+        },
+        "crop":{
+            "croppedNum" : "切り抜き数",
+            "confirm" : {
+                "doCrop" : "選択した範囲を切り抜きます。",
+                "removeItem" : "選択した画像を削除します。よろしいですか？",
+                "deleteAll" : "切り抜いた画像を全て削除します。よろしいですか？",
+                "downloadAll" : "切り抜いた画像を圧縮ファイルでダウンロードします。"
+            },
+            "errorMax" : "|MAX|個以上は切り抜けません。",
+            "complete" : "切り抜きました",
+            "failed" : "切り抜きに失敗しました"
+        },
+        "memo":{
+            "curve" : "曲線",
+            "straight" : "直線",
+            "square" : "四角形",
+            "circle" : "楕円形",
+            "eraser" : "削除",
+            "trash" : "全削除",
+            "undo" : "取消し",
+            "color" : "色",
+            "size" : "サイズ",
+            "alpha" : "透明度",
+            "confirm" : {
+                "deleteNowPage" : "このページの書き込みを削除します。<br>よろしいですか？"
+            }
+        },
+        "txtcopy" : {
+            "completeClipboadCopy" : "コピーしました"
+        },
+        "fusen" : {
+            "panelFusenCaptionClick" : "ページ上をクリックしてふせんを<br>貼ります。",
+            "panelFusenCaptionTap" : "ページ上をタップしてふせんを貼ります。",
+            "InputPlaceholder" : "テキストを入力してください。",
+            "drawFusen" : "",
+            "confirm" : {
+                "removeItem" : "選択したふせんを削除します。よろしいですか？",
+                "deleteAll" : "ふせんを全て削除します。よろしいですか？"
+            }
+        },
+        "browsingHistory" : {
+            "confirm" : {
+                "removeItem" : "選択した履歴を削除します。よろしいですか？",
+                "deleteAll" : "履歴を全て削除します。よろしいですか？"
+            }
+        },
+        "comment" : {
+            "ellipsisChar" : "さらに表示",
+            "justNow"    : "たった今",
+            "replyNum"   : "コメント数",
+            "targetBook" : "ブック",
+            "targetArea" : "エリア指定",
+            "yesterday"  : "昨日",
+            "dateAgoFormat" : "|YEAR|/|MONTH|/|DAY| |HOUR|:|MINITE|",
+            "minAgo" : "|NUM|分前",
+            "hourAgo" : "|NUM|時間前",
+            "dayAgo" : "|NUM|日前",
+            "commentUserPlaceholder" : "投稿者名を入力",
+            "commentTextPlaceholder" : "コメント内容を入力",
+            "confirm" : {
+                "removeItem" : "選択したコメントを削除します。<br>よろしいですか?",
+                "areaSelect" : "コメント対象のエリアを確定します。<br>よろしいですか?"
+            }
+        },
+        "bookInfo" : {
+            "dateFormat" : "|YEAR|/|MONTH|/|DAY|",
+            "title" : "お知らせ",
+            "showMore" : "さらに表示"
+        },
+        "common" : {
+            "ok" : "OK",
+            "yes" : "はい",
+            "no" : "いいえ",
+            "cancel" : "キャンセル",
+            "close" : "閉じる",
+            "confirm" : "確認",
+            "continue" : "続ける",
+            "back" : "戻る",
+            "launcherror" : "ブック情報の読み込みに失敗しました。",
+            "nopublic" : "このブックは非公開設定のため<br>ご覧いただくことができません。",
+            "notsupport" : "ご利用の環境ではご覧いただけません。",
+            "thispage" : "このページ",
+            "leftpage" : "左ページ",
+            "rightpage" : "右ページ"
+        },
+        "error" : {
+            "moveInputPage" : "該当するページが見つかりません。<br>正しいページ番号を入力してください。",
+            "txtsearchInput" : "キーワードを入力してください。",
+            "txtsearchNoData" : "一致するページは見つかりません。",
+            "commentUserInput" : "投稿者名を入力してください。",
+            "commentTextInput" : "コメント内容を入力してください。",
+            "commentTargetInput" : "コメントの対象を選択してください。",
+            "commentAreaSelect" : "コメントのエリアを選択してください。",
+            "commentSubmit" : "コメントの投稿に失敗しました。",
+            "pdfProhibited" : "表示が許可されていないページがあります。",
+            "printingChromeMessage" : "印刷画面表示中はブックの操作が行えません。<br>操作を続けるには印刷画面を閉じてください。",
+            "printStartPageInput" : "該当する開始ページがありません。<br>正しいページ番号を入力してください。",
+            "printEndPageInput" : "該当する終了ページがありません。<br>正しいページ番号を入力してください。",
+            "printPageRangeInput" : "終了ページは開始ページ以降を指定してください。",
+            "printProhibited"   : "印刷が許可されていないページがあります。",
+            "printPageNumWarning"   : "ページ数が多いので閲覧環境によっては印刷に失敗する場合があります。",
+            "printExec" : "印刷データの読み込みに失敗しました。<br>ページ数を減らして再度印刷を行ってください。",
+            "dbsearchNoData" : "該当するデータは見つかりません。",
+            "dbFileNotFound" : "ダウンロードファイルが<br>見つかりませんでした。",
+            "dbFileRequestError" : "ダウンロードに失敗しました。"
+        },
+        "txtsearch" : {
+            "hitNum" : "ヒット数",
+            "searchtxtInputPlaceholder" : "検索キーワードを入力"
+        },
+        "general" : {
+            "autoflip" : "自動めくり",
+            "fusen" : "ふせん",
+            "page" : "ページ",
+            "printout" : "印刷",
+            "search" : "検索",
+            "pdf" : "PDF"
+        },
+        "login" : {
+            "login"  : "ログイン",
+            "userId" : "ユーザID",
+            "userPw" : "パスワード",
+            "userIdInput" : "ユーザIDを入力してください。",
+            "userPwInput" : "パスワードを入力してください。",
+            "inputError"  : "ユーザIDまたはパスワードが異なります。",
+            "commonError" : "ログインに失敗しました。"
+        },
+        "option" : {
+            "comment_area" : "コメントエリアを表示する",
+            "news" : "お知らせを表示する",
+            "memo" : "ペンを表示する",
+            "fusen" : "ふせんを表示する",
+            "link" : "リンクを表示する",
+            "movie" : "動画・音声を表示する",
+            "embed" : "埋め込みコンテンツを表示する",
+            "highlight" : "検索結果をハイライト表示する",
+            "tooltip" : "メニュー説明を表示する",
+            "viewmode" : "表示切替",
+            "viewmode_open" : "見開き表示",
+            "viewmode_unit" : "単ページ表示",
+            "movetype" : "めくり方法",
+            "movetype_real" : "リアルめくり",
+            "movetype_slide" : "スライドめくり",
+            "movetype_none" : "無し",
+            "devicemode" : "モード切替",
+            "devicemode_pc" : "デスクトップモード",
+            "devicemode_sd" : "タブレットモード"
+        },
+        "pageMove" : {
+            "pageInputPlaceholder" : "ページを入力"
+        },
+        "print" : {
+            "open_title"  : "ページレイアウト",
+            "nowpage"     : "現在のページ",
+            "leftpage"    : "左ページ",
+            "rightpage"   : "右ページ",
+            "bothpage"    : "両ページ",
+            "allpage"     : "全ページ",
+            "pageselect"  : "ページ指定",
+            "pageselect_range_mark" : "-",
+            "open_page"   : "見開き",
+            "unit_page"   : "単ページ",
+            "fusen_print" : "ふせんも印刷",
+            "memo_print" : "ペンも印刷",
+            "pages_message" : "ページ数が多い時は印刷に失敗する場合があります。",
+            "pageselect_message" : "ページ数を減らしてお試しください。"
+        },
+        "products" : {
+        "searchtxtInputPlaceholder" : "検索キーワードを入力",
+        "nowpageProducts" : "|NAME|一覧",
+        "searchedProducts" : "検索結果",
+        "detailsPage" : "詳細情報",
+        "includePages" : "掲載ページ",
+        "totalCounts" : "総件数：",
+        "totalCountsUnit" : "件"
+        },
+        "pdf" : {
+            "leftpage"    : "左ページ",
+            "rightpage"   : "右ページ",
+            "allpage"     : "全ページ",
+            "nowpage"     : "現在のページ"
+        }
+    }
+]
