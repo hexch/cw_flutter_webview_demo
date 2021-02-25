@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+// import 'inapp_static_server.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'inappserver.dart';
 
 InAppServer localhostServer = InAppServer();
-
+// final localhostServer = InAppStaticServer();
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await localhostServer.start();
   runApp(MyApp());
 }
@@ -32,6 +37,19 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+
+      // routes: {
+      //   '/': (_) => WebviewScaffold(
+      //         url: "http://localhost:8080/book/index.html",
+      //         appBar: new AppBar(
+      //           title: const Text('Widget webview'),
+      //         ),
+      //         mediaPlaybackRequiresUserGesture: false,
+      //         withLocalStorage: true,
+      //         hidden: true,
+      //         initialChild: Container(),
+      //       ),
+      // },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -71,13 +89,39 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: WebView(
-        initialUrl: "http://localhost:8080/book/index.html",
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController controller) {
-          _controller = controller;
-        },
-      ),
+      body: inAppWebView(),
     );
   }
+
+  // Widget normalWebView() {
+  //   return WebView(
+  //     initialUrl: "http://localhost:8080/book/index.html",
+  //     javascriptMode: JavascriptMode.unrestricted,
+  //     gestureNavigationEnabled: true,
+  //     debuggingEnabled: true,
+  //     onWebViewCreated: (WebViewController controller) {
+  //       _controller = controller;
+  //     },
+  //     onPageFinished: (url) => print("onPageFinished:$url"),
+  //     onPageStarted: (url) => print("onPageStarted:$url"),
+  //     onWebResourceError: (error) =>
+  //         print("onWebResourceError:${error.description}"),
+  //   );
+  // }
+
+  Widget inAppWebView() {
+    return InAppWebView(
+      initialUrl: _initURL,
+      initialOptions: InAppWebViewGroupOptions(
+          crossPlatform:
+              InAppWebViewOptions(mediaPlaybackRequiresUserGesture: false),
+          ios: IOSInAppWebViewOptions(
+              allowsInlineMediaPlayback: true,
+              allowsPictureInPictureMediaPlayback: true,
+              allowsAirPlayForMediaPlayback: true),
+          android: AndroidInAppWebViewOptions()),
+    );
+  }
+
+  final _initURL = 'http://localhost:8080/book/index.html';
 }

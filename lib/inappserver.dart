@@ -45,9 +45,9 @@ class InAppServer {
 
         server.listen((HttpRequest request) async {
           var body = List<int>();
-          var path = request.requestedUri.path;
+          var path = Uri.decodeFull(request.requestedUri.path);
           final currentPath = p.dirname(path);
-          _logger('path:$path');
+          _logger('path decoded:$path');
           _logger('currentPath:$currentPath');
           path = (path.startsWith('/')) ? path.substring(1) : path;
           path += (path.endsWith('/')) ? 'index.html' : '';
@@ -56,12 +56,13 @@ class InAppServer {
             body = (await rootBundle.load(path)).buffer.asUint8List();
 
             final stringBody = String.fromCharCodes(body);
+            //_logger('old body:$stringBody');
             if (path.endsWith('html') &&
                 stringBody != null &&
                 stringBody.isNotEmpty) {
               final newBody = await _parser(stringBody, currentPath);
               body = Uint8List.fromList(newBody.codeUnits);
-              _logger('body:$newBody');
+              //_logger('new body:$newBody');
             }
           } catch (e) {
             print(e.toString());
@@ -81,7 +82,18 @@ class InAppServer {
 
           request.response.headers.contentType =
               new ContentType(contentType[0], contentType[1], charset: 'utf-8');
-          request.response.add(body);
+          if (contentType[0] == "video" && contentType[1] == "mp4") {
+            final mp4Path =
+                path.startsWith('/') ? path.substring(1, path.length) : path;
+            final ByteData videoData = await rootBundle.load(mp4Path);
+            final String base64VideoData =
+                base64Encode(Uint8List.view(videoData.buffer));
+            // // request.response.
+            request.response.add(body);
+          } else {
+            request.response.add(body);
+          }
+
           request.response.close();
           _logger('contentType:${request.response.headers.contentType} ');
         });
@@ -102,9 +114,28 @@ class InAppServer {
     }
   }
 
+  final String tempMp4 = 'book/movie/17_1/17_1.mp4';
+  String get tempTarget => '<source src="$tempMp4" type=\'video/mp4\'>';
+  Future<String> _tempParser(String html) async {
+    final ByteData videoData = await rootBundle.load(tempMp4);
+    final String base64VideoData =
+        base64Encode(Uint8List.view(videoData.buffer));
+    final htmlString =
+        '<source src="data:video/mp4;charset=utf-8;base64,$base64VideoData">';
+    return html.replaceFirst(tempTarget, htmlString);
+  }
+
   Future<String> _parser(String html, String currentPath) async {
     if (html == null || html.isEmpty || !html.contains('video')) {
       return html;
+    }
+
+    if (html.contains(tempTarget)) {
+      final newHtml = await _tempParser(html);
+      _logger('temp#######start');
+      _logger(newHtml);
+      _logger('temp#######end');
+      return newHtml;
     }
     final doc = parse(html);
     final source = doc.getElementsByTagName('source');
@@ -121,6 +152,8 @@ class InAppServer {
     for (final l in lines) {
       if (l.contains('source')) {
         final s = source[sourceIndex++].attributes;
+        //Todo
+        _logger('source found:$s');
         if (s == null || s.containsKey('src')) {
           currentPath = currentPath.startsWith('/')
               ? currentPath.substring(1, currentPath.length)
@@ -133,8 +166,6 @@ class InAppServer {
               '<source src="data:video/mp4;charset=utf-8;base64,$base64VideoData">';
           newHtml = newHtml + htmlString + '\n';
         }
-        //Todo
-        _logger('source found:$s');
       } else {
         newHtml = newHtml + l + '\n';
       }

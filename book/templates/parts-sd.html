@@ -1561,8 +1561,9 @@
 <script type="text/template" id="video-template">
 <div id="<%= movieObjId %>" class="movie-obj">
     <video id="<%= movieId %>" controlsList="nodownload" class="movie-video video-obj" <%= controls %> <%= autoplay %> <%= loop %>
-     preload="auto" width="<%= width %>" height="<%= height %>"
+     preload="auto" playsinline webkit-playsinline autoplay width="<%= width %>" height="<%= height %>"
      data-id="<%= id %>">
+     <source src="book/movie/17_1/17_1.mp4" type='video/mp4'>
      <source src="<%= file %>.mp4<%= getparam %>" type='video/mp4'>
     </video>
 </div>
